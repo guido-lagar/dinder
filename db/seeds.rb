@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -11,11 +12,13 @@ Option.destroy_all
 User.destroy_all
 
 puts "creating user"
-user1 = User.new(email: "olga@gmail.com", password: "123456qwerty", name: "Oli")
+user1 = User.new(email: "olga@gmail.com", password: "123456qwerty")
 user1.save!
 
 puts "user created"
+
 puts "creating options"
+
 option1 = Option.new(name: "La Mar", category: "Restaurant")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409729/LeMar_Peruvian_Restaurant_ajja66.jpg")
 option1.photo.attach(io: photo, filename: "lamar.png", content_type: "image/jpg")
