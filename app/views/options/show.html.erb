@@ -1,0 +1,56 @@
+
+<div class="container">
+<div data-controller="add-in-choices">
+<% i = @options.ids.sample %>
+<% k = @options.ids.sample %>
+<% option1 = @options[1]%>
+<% option2 = @options[2]%>
+<% option3 = @options[3]%>
+
+<div data-add-in-choices-target="choice" <% optioni = @options[i] %>>
+
+</div>
+<% optionk = @options[k]%>
+
+  <div class="row">
+
+    <div class="col">
+        <div id = "cube-container">
+
+          <div class = "cube">
+
+            <img data-add-in-choices-target="photo"<%= cl_image_tag optioni.photo.key,  :crop=>"fill", data: {
+            add_in_choices_target: "event",
+            action: "click->add-in-choices#add"
+            }
+            %>
+            <img <%= cl_image_tag option2.photo.key,  :crop=>"fill" %>
+            <img <%= cl_image_tag option3.photo.key,  :crop=>"fill" %>
+            <img <%= cl_image_tag option1.photo.key,  :crop=>"fill" %>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    <div class="col">
+      <div id = "cube-container">
+
+          <div class = "cube">
+
+            <img data-add-in-choices-target="choice" <%= cl_image_tag optionk.photo.key,  :crop=>"fill" %>
+            <img <%= cl_image_tag option1.photo.key,  :crop=>"fill" %>
+            <img <%= cl_image_tag option2.photo.key,  :crop=>"fill" %>
+            <img <%= cl_image_tag option3.photo.key,  :crop=>"fill" %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+</div>
