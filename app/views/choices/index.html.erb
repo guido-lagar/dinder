@@ -1,0 +1,25 @@
+<div class="container-index"
+  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url()">
+  <div class="container">
+    <h1 class="text-center m-3">My Results</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="content p-3">
+      <div class="cards-index">
+        <% @choices.each do |choice| %>
+          <div class="card-index rounded-4" style="width: 18rem; ">
+          <%= link_to choice_path(choice), class:"text-decoration-none" do %>
+            <div class="img">
+              <%= cl_image_tag choice.photo.key, width: 151, height: 151 %>
+            </div>
+            <div class="card-player-info">
+              <h1 class="card-index-text">Game with ${user2}</h1>
+            </div>
+          <%= end %>
+        </div>
+        <%= end %>
+      </div>
+    </div>
+  </div>
+</div>
