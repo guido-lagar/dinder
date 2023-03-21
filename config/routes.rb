@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :options
-  resources :choices, only: %i[index show]
+  resources :choices
 end

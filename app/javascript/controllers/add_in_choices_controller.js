@@ -7,9 +7,11 @@ export default class extends Controller {
 
   }
   add(event) {
+    // new_option = event.target.dataset.optionId
+    console.log(event.target.dataset.optionId)
 
-    console.log(this.choiceTarget)
-    
+    // new_option_id = event.target.dataset.optionId
+    // optionchoice = OptionChoice.new(choices_id: @choice.id, options_id: new_option_id)
+    // optionchoice.save
   }
-
 }
