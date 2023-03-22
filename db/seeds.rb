@@ -7,6 +7,7 @@ require "open-uri"
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+OptionChoice.destroy_all
 Choice.destroy_all
 Option.destroy_all
 User.destroy_all
@@ -100,3 +101,21 @@ photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409403/
 option20.photo.attach(io: photo, filename: "mm.png", content_type: "image/jpg")
 option20.save!
 puts "options created"
+
+puts "creating choices"
+choice1 = Choice.new(user_id: user1.id)
+choice1.save!
+puts "choices created"
+
+puts "creating option/choices"
+optchoice1 = OptionChoice.new(choice_id: choice1.id, option_id: option19.id)
+optchoice1.save!
+optchoice2 = OptionChoice.new(choice_id: choice1.id, option_id: option13.id)
+optchoice2.save!
+optchoice3 = OptionChoice.new(choice_id: choice1.id, option_id: option11.id)
+optchoice3.save!
+optchoice4 = OptionChoice.new(choice_id: choice1.id, option_id: option2.id)
+optchoice4.save!
+optchoice5 = OptionChoice.new(choice_id: choice1.id, option_id: option6.id)
+optchoice5.save!
+puts "option/choices created"

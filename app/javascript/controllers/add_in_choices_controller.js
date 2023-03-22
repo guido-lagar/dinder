@@ -9,9 +9,20 @@ export default class extends Controller {
   add(event) {
     // new_option = event.target.dataset.optionId
     console.log(event.target.dataset.optionId)
+    console.log(this.choiceTarget)
+
+    fetch(this.choiceTarget.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(this.choiceTarget)
+    })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data)
+      })
 
     // new_option_id = event.target.dataset.optionId
-    // optionchoice = OptionChoice.new(choices_id: @choice.id, options_id: new_option_id)
+    // optionchoice = OptionChoice.new(choice_id: @choice.id, option_id: new_option_id)
     // optionchoice.save
   }
 }
