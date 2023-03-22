@@ -1,3 +1,7 @@
 class OptionChoicesController < ApplicationController
-  @optionchoice = OptionChoice.new(choice_id: @choice.id, option_id: params[:event.target.dataset.optionId])
+
+  def create
+  @optionchoice = OptionChoice.new(choice_id: params[:choice_id], option_id: params[:option_id])
+  @optionchoice.save
+  end
 end
