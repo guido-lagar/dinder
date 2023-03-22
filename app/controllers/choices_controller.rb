@@ -12,13 +12,13 @@ class ChoicesController < ApplicationController
   def new
     @choice = Choice.new
     @options = Option.all
+    
   end
 
   def create
     @choice = Choice.new
     @choise.user = current_user
     @choice.save
-
   end
 
   def update
