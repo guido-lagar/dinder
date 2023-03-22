@@ -44,3 +44,4 @@ class ChoicesController < ApplicationController
     @choice = Choice.find(params[:id])
   end
 end
+
