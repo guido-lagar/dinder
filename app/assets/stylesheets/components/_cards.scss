@@ -1,0 +1,23 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 10;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  align-items: center;
+  font-size: 22px;
+  color: black;
+  font-weight: bolder;
+  // text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  border: none;
+}

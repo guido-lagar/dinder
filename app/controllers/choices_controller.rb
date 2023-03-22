@@ -1,18 +1,18 @@
 class ChoicesController < ApplicationController
-  before_action :set_choice, only: %i[show destroy]
+  # before_action :set_choice, only: %i[show destroy]
 
   def index
     @choices = Choice.all
   end
 
   def show
-
+    @choices = Choice.all
   end
 
   def new
     @choice = Choice.new
     @options = Option.all
-    
+
   end
 
   def create
@@ -39,9 +39,9 @@ class ChoicesController < ApplicationController
 
   # end
 
-  private
+  # private
 
-  def set_choice
-    @choice = Choice.find(params[:id])
-  end
+  # # def set_choice
+  # #   @choice = Choice.find(params[:id])
+  # # end
 end
