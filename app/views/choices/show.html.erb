@@ -1,16 +1,20 @@
 
-
 <div class="container">
 <div data-controller="add-in-choices">
-<% i = @options.ids.sample %>
-<% k = @options.ids.sample %>
 <% option1 = @options[1]%>
 <% option2 = @options[2]%>
 <% option3 = @options[3]%>
-<% optioni = @options[i]%>
 
+<% i = @options.ids.sample%>
+<% @choice.options.each do |option| %>
+<% while option.id == i %>
+<% i = @options.ids.sample%>
+<% end %>
+<% end %>
+<% optioni = @options[i] %>
 
-<% optionk = @options[k]%>
+<% k = @options.ids.sample %>
+<% optionk = @options[k] if optionk != optioni%>
 
   <div class="row">
 
@@ -33,8 +37,11 @@
 
         </div>
 
-          <div class="name-of-option" data-add-in-choices-target="choice"> <%=optioni.name%>
-          </div>
+         <%= link_to "#{optioni.name}", choice_option_option_choices_path(@choice, optioni), data: {turbo_method: :post } %>
+          <%# <% <div class="name-of-option" data-add-in-choices-target="choice"> <%=optioni.name </div> %>
+
+
+
 
       </div>
 
