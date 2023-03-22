@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'options/show'
+  get 'login/create', to: 'logins#create', as: :create_login
   devise_for :users
   root to: "pages#home"
 
   resources :options
-  resources :choices
 end
