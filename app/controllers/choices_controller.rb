@@ -6,19 +6,18 @@ class ChoicesController < ApplicationController
   end
 
   def show
-
+    @options = Option.all
   end
 
   def new
-    @choice = Choice.new
-    @options = Option.all
-    
+
   end
 
   def create
     @choice = Choice.new
-    @choise.user = current_user
+    @choice.user = current_user
     @choice.save
+    redirect_to choice_path(@choice)
   end
 
   def update
