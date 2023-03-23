@@ -13,11 +13,6 @@ export default class extends Controller {
 
   add(event) {
 
-    if(this.element.dataset.choices > 4) {
-
-    } else {
-      // window.location.reload()
-    };
-
+    
   }
 }
