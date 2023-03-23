@@ -6,9 +6,10 @@ class OptionChoicesController < ApplicationController
 
         @optionchoice = OptionChoice.new(choice_id: params[:choice_id], option_id: params[:option_id])
         @optionchoice.save
-        redirect_to "/"
+        redirect_to "/choices"
         return
       end
+
 
     @optionchoice = OptionChoice.new(choice_id: params[:choice_id], option_id: params[:option_id])
     @optionchoice.save
