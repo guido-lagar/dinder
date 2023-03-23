@@ -9,7 +9,7 @@
       <div class="background-image"></div>
       <div class="cta-container">
         <h1>Date nights in just a couple clicks</h1>
-        <a href="/users/sign_up" class="start-button">Get Started</a>
+        <%= link_to "Plan new date", choices_path, data: {turbo_method: :post } %>
       </div>
     </div>
 

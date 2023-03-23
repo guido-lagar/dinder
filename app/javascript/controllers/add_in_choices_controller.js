@@ -1,20 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
-let i = 1;
+
 // Connects to data-controller="add-in-choices"
 export default class extends Controller {
   static targets = ["choice" , "photo"]
   connect() {
 
+    console.log(this.element.dataset.choices)
+  }
+  initialize(){
+
   }
 
   add(event) {
 
-    console.log(event.target.dataset.optionId)
-    console.log(this.clickCount)
+    if(this.element.dataset.choices > 4) {
 
-    window.location.reload();
-    i +=1
-    if i == 5
+    } else {
+      // window.location.reload()
+    };
 
   }
 }

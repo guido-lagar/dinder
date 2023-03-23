@@ -6,7 +6,17 @@ class ChoicesController < ApplicationController
   end
 
   def show
+    @endgame = OptionChoice.where(choice_id: params[:id])
     @options = Option.all
+    i = 0
+    k = 0
+    until @choice.options.pluck(:id).include?(i) == false && @choice.options.pluck(:id).include?(k) == false && k != i
+    i = @options.ids.sample
+    k = @options.ids.sample
+    end
+
+    @optioni = @options[i]
+    @optionk = @options[k]
   end
 
   def new
@@ -44,4 +54,3 @@ class ChoicesController < ApplicationController
     @choice = Choice.find(params[:id])
   end
 end
-
