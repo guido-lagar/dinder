@@ -6,7 +6,7 @@ class ChoicesController < ApplicationController
   end
 
   def show
-    @options = Option.all
+    @choices = Choice.all
   end
 
   def new
@@ -44,4 +44,3 @@ class ChoicesController < ApplicationController
     @choice = Choice.find(params[:id])
   end
 end
-
