@@ -5,17 +5,19 @@ export default class extends Controller {
   static targets = ["choice" , "photo"]
   connect() {
 
+    console.log(this.element.dataset.choices)
   }
-  initialize(event){
-    event.clickCount = 0
+  initialize(){
+
   }
 
   add(event) {
-    event.clickCount +=1
-    console.log(event.target.dataset.optionId)
-    console.log(this.clickCount)
-    
-    window.location.reload();
+
+    if(this.element.dataset.choices > 4) {
+
+    } else {
+      // window.location.reload()
+    };
 
   }
 }

@@ -1,1 +1,112 @@
-// Specific CSS for your home-page
+/* Reset styles for the whole page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Specific CSS for your home-page */
+.landing-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1455906876003-298dd8c44ec8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2752&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
+
+}
+
+.cta-container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: white;
+  padding-top: 115px;
+}
+
+.start-button {
+  background-color: #ff6f69;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.start-button:hover {
+  background-color: #e34934;
+  color: white;
+  text-decoration: none;
+}
+
+.testimonials {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: none;
+}
+
+.testimonials h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.testimonials ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.testimonials li {
+  flex-basis: calc(33.33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.testimonial-content {
+  text-align: right;
+  padding-left: 10px;
+}
+
+.testimonial-box p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-inline: 100px;
+  font-style: italic;
+}
