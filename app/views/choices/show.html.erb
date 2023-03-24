@@ -9,7 +9,7 @@
       <div class="row">
 
         <div class="col">
-            <div id = "cube-container">
+            <div class="cube-container">
               <%= link_to choice_option_option_choices_path(@choice, @optioni), data: {turbo_method: :post } do%>
                 <div class = "cube">
 
@@ -28,13 +28,14 @@
              <% end %>
 
             </div>
-
+            <div class="name-of-option-a">
             <%= @optioni.name %>
-        </div>
+            </div>
+           </div>
 
 
         <div class="col">
-          <div id = "cube-container">
+          <div class="cube-container">
 
             <%= link_to choice_option_option_choices_path(@choice, @optionk), data: {turbo_method: :post } do%>
               <div class = "cube">
@@ -52,7 +53,9 @@
               </div>
             <% end %>
             </div>
+            <div class="name-of-option-b">
             <%= @optionk.name %>
+            </div>
             </div>
           </div>
 
