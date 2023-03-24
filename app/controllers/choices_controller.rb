@@ -6,39 +6,53 @@ class ChoicesController < ApplicationController
   end
 
   def show
-    @endgame = OptionChoice.where(choice_id: params[:id])
-    @options = Option.all
+        @endgame = OptionChoice.where(choice_id: params[:id])
+        @options = Option.all
 
-    loop do
-      @i = @options.ids.sample
-      @k = @options.ids.sample
-      if (@choice.options.pluck(:id).include?(@i) == false) && (@choice.options.pluck(:id).include?(@k) == false) && @i != @k
-        @optioni = @options.find(@i)
-        @optionk = @options.find(@k)
-        break
-      end
+        loop do
+          @i = @options.ids.sample
+          @k = @options.ids.sample
+          if (@choice.options.pluck(:id).include?(@i) == false) && (@choice.options.pluck(:id).include?(@k) == false) && @i != @k
+            @optioni = @options.find(@i)
+            @optionk = @options.find(@k)
+            break
+          end
     end
 
 
   end
 
-  def new
+  def edit
+    # raise
+    @endgame = OptionChoice.where(choice_id: params[:id])
+    @choice_first = Choice.find(params[:id])
+    @options = @choice_first.options
 
+        loop do
+          @i = @options.ids.sample
+          @k = @options.ids.sample
+          if (@choice.options.pluck(:id).include?(@i) == false) && (@choice.options.pluck(:id).include?(@k) == false) && @i != @k
+            @optioni = @options.find(@i)
+            @optionk = @options.find(@k)
+            break
+          end
+        end
+  end
+
+
+
+  def new
   end
 
   def create
     @choice = Choice.new
+    @choice.result = rand(5)
     @choice.user = current_user
     @choice.save
     redirect_to choice_path(@choice)
   end
 
-  def create2
-    @choice = Choice.new
-    @choice.user = current_user
-    @choice.save
-    redirect_to choice_path(@choice)
-  end
+
 
   def update
 
