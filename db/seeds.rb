@@ -15,6 +15,8 @@ User.destroy_all
 puts "creating user"
 user1 = User.new(email: "olga@gmail.com", password: "123456qwerty")
 user1.save!
+user2 = User.new(email: "guido@gmail.com", password: "123456")
+user2.save!
 
 puts "user created"
 
@@ -103,8 +105,10 @@ option20.save!
 puts "options created"
 
 puts "creating choices"
-choice1 = Choice.new(user_id: user1.id)
+choice1 = Choice.new(user_id: user1.id, result: 1)
 choice1.save!
+choice2 = Choice.new(user_id: user2.id, result: choice1.result)
+choice2.save!
 puts "choices created"
 
 puts "creating option/choices"
@@ -118,4 +122,14 @@ optchoice4 = OptionChoice.new(choice_id: choice1.id, option_id: option2.id)
 optchoice4.save!
 optchoice5 = OptionChoice.new(choice_id: choice1.id, option_id: option6.id)
 optchoice5.save!
+optchoice6 = OptionChoice.new(choice_id: choice2.id, option_id: option5.id)
+optchoice6.save!
+optchoice7 = OptionChoice.new(choice_id: choice2.id, option_id: option13.id)
+optchoice7.save!
+optchoice8 = OptionChoice.new(choice_id: choice2.id, option_id: option7.id)
+optchoice8.save!
+optchoice9 = OptionChoice.new(choice_id: choice2.id, option_id: option1.id)
+optchoice9.save!
+optchoice10 = OptionChoice.new(choice_id: choice2.id, option_id: option6.id)
+optchoice10.save!
 puts "option/choices created"

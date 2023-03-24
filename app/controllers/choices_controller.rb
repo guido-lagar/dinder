@@ -33,6 +33,13 @@ class ChoicesController < ApplicationController
     redirect_to choice_path(@choice)
   end
 
+  def create2
+    @choice = Choice.new
+    @choice.user = current_user
+    @choice.save
+    redirect_to choice_path(@choice)
+  end
+
   def update
 
     @choice.update(choice_params)
