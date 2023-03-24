@@ -21,20 +21,19 @@ class ChoicesController < ApplicationController
   end
 
   def edit
-    # raise
-    @endgame = OptionChoice.where(choice_id: params[:id])
-    @choice_first = Choice.find(params[:id])
-    @options = @choice_first.options
 
-    loop do
+    @endgame = OptionChoice.where(choice_id: params[:id])
+    @choice = Choice.find(params[:id])
+    @options_our = @choice.options.ids
+    @options = Option.all
+
+    @options_our.each do |option|
+      @k = option
+      @optionk = @options.find(@k)
       @i = @options.ids.sample
-      @k = @options.ids.sample
-      if (@choice.options.pluck(:id).include?(@i) == false) && (@choice.options.pluck(:id).include?(@k) == false) && @i != @k
-        @optioni = @options.find(@i)
-        @optionk = @options.find(@k)
-        break
-      end
+      @optioni = @options.find(@i)
     end
+
   end
 
   def new
@@ -43,7 +42,6 @@ class ChoicesController < ApplicationController
 
   def create
     @choice = Choice.new
-    @choice.result = rand(5)
     @choice.user = current_user
     @choice.save
     redirect_to choice_path(@choice)

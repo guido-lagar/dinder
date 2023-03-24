@@ -8,9 +8,9 @@ class ReceiptorsController < ApplicationController
     if user.nil?
       user = User.create(email: params[:receiptor][:email], password: 123456)
     end
-    receiptor = Receiptor.new(user_id: user.id, choice_id: params[:choice_id], email: :email)
+    receiptor = Receiptor.new(user_id: user.id, choice_id: params[:choice_id], email: params[:email])
     receiptor.save
-    # raise
+
     redirect_to "/"
 
     # UserMail.welcome(receiptor).send_now
