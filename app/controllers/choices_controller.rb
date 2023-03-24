@@ -6,20 +6,18 @@ class ChoicesController < ApplicationController
   end
 
   def show
-        @endgame = OptionChoice.where(choice_id: params[:id])
-        @options = Option.all
+    @endgame = OptionChoice.where(choice_id: params[:id])
+    @options = Option.all
 
-        loop do
-          @i = @options.ids.sample
-          @k = @options.ids.sample
-          if (@choice.options.pluck(:id).include?(@i) == false) && (@choice.options.pluck(:id).include?(@k) == false) && @i != @k
-            @optioni = @options.find(@i)
-            @optionk = @options.find(@k)
-            break
-          end
+    loop do
+      @i = @options.ids.sample
+      @k = @options.ids.sample
+      if (@choice.options.pluck(:id).include?(@i) == false) && (@choice.options.pluck(:id).include?(@k) == false) && @i != @k
+        @optioni = @options.find(@i)
+        @optionk = @options.find(@k)
+        break
+      end
     end
-
-
   end
 
   def edit
@@ -38,9 +36,8 @@ class ChoicesController < ApplicationController
 
   end
 
-
-
   def new
+    @choice = Choice.new
   end
 
   def create
@@ -50,16 +47,11 @@ class ChoicesController < ApplicationController
     redirect_to choice_path(@choice)
   end
 
-
-
   def update
-
     @choice.update(choice_params)
-
   end
 
   def destroy
-
     @choice.destroy
     # redirect_to player_bookings_path(@choice), status: :see_other
   end
