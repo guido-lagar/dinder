@@ -1,25 +1,32 @@
 
 <div class="container">
-
   <h2 class="text-center m-3">Your Dates</h2>
+</div>
 
-  <div class="cards">
+<% if @choices == "" %>
+  <h3> You don't have any active game yet </h3>
+<% else %>
+  <% @choices.each do |c| %>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: absolute;">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409403/Museo_Moderno_d53mcq.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <div class="clearfix mb-3">
+                <span class="float-start badge rounded-pill bg-primary">USERX</span>
+                <span class="float-end">Date</span>
+              </div>
+              <h5 class="card-title">Status: Waiting for other users to complete their game...</h5>
+                <div class="text-center my-4"> <a href="#" class="btn btn-warning">View your picks</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
-          <%# <% @choiceoptions.each do |co| %>
-            <%# <div class="card-index rounded-4" style="width: 18rem; ">
-            <%= link_to choiceoption_path(choiceoption), class:"text-decoration-none" do%>
-            <%# <div class="img">
-              <%= cl_image_tag option.photo.key, width: 151, height: 151 %>
-              <%# </div>
-              <div class="card-player-info">
-               <p class="card-index-text"><%= option.name</p> %>
-                  <%# <h2 class="card-index-title h1"><%= option.category</h2> %>
-              <%# </div>
-              <% end %>
-            <%# </div>
-          <% end %>
-
-    <div class="card mb-3" style="max-width: 540px;">
+    <%# <div class="card mb-3" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679493153/development/y4f7qugzixnqyq2rvxpft2oeisf9.jpg" class="img-fluid rounded-start" alt="...">
@@ -63,10 +70,7 @@
         </div>
       </div>
 
-    </div>
-
-  </div>
-</div>
+    </div> %>
 
 
 
