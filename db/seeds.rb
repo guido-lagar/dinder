@@ -105,9 +105,9 @@ option20.save!
 puts "options created"
 
 puts "creating choices"
-choice1 = Choice.new(user_id: user1.id, result: 1)
+choice1 = Choice.new(user_id: user1.id)
 choice1.save!
-choice2 = Choice.new(user_id: user2.id, result: choice1.result)
+choice2 = Choice.new(user_id: user2.id)
 choice2.save!
 puts "choices created"
 
