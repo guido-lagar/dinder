@@ -27,12 +27,16 @@ class ChoicesController < ApplicationController
     @options_our = @choice.options.ids
     @options = Option.all
 
-    @options_our.each do |option|
-      @k = option
+
+
+      @k =  @options_our.sample
       @optionk = @options.find(@k)
+      
       @i = @options.ids.sample
       @optioni = @options.find(@i)
-    end
+
+
+
 
   end
 
