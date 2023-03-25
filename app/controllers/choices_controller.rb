@@ -27,15 +27,15 @@ class ChoicesController < ApplicationController
     @options_our = @choice.options.ids
     @options = Option.all
 
-
-
-      @k =  @options_our.sample
-      @optionk = @options.find(@k)
-      
+    loop do
       @i = @options.ids.sample
-      @optioni = @options.find(@i)
-
-
+      @k =  @options_our.sample
+      if @options_our.count(@k) == 1 && @i != @k
+        @optionk = @options.find(@k)
+        @optioni = @options.find(@i)
+      break
+       end
+     end
 
 
   end
