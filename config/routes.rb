@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#home"
+  get '/settings', to: 'settings#edit'
+  patch '/settings', to: 'settings#update'
 
   resources :choices, only: %i[index show create new edit] do
     resources :receiptors
