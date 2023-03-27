@@ -65,8 +65,8 @@
             <% option = Option.all.find(result.first) %>
             <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
             <%= option.name %>
-          <% else %>
-          <p>Nothing yet</p>
+          <%# <% else %> 
+          <%# <p class="d-none">Nothing yet</p> %>
 
         <% end %>
     <% end %>
