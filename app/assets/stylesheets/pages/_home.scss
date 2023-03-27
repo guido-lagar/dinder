@@ -17,8 +17,7 @@
 
 
 .cta-container {
-  // height: 1000px;
-  //position: absolute;
+  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -41,31 +40,41 @@ h1 {
   color: white;
 }
 
-.start-button {
-  background-color: #ff6f69;
-  color: #fff;
+.btn-light {
+  background-image: linear-gradient(to right,#ff6472, #ffb2bc);
+  // color: #fff;
   font-size: 1.5rem;
+  font-weight: bold;
   padding: 1rem 2rem;
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-image 0.4s ease;
+  transition: color 0.4s ease;
+
   text-decoration: none;
 }
 
-.start-button:hover {
-  background-color: #e34934;
-  color: white;
+.btn-light:hover {
+  background-image: linear-gradient(to right,#d3525c, #ce9199);
+
+  a {
+    color: rgb(191, 189, 189);
+  text-decoration: none;
+  }
   text-decoration: none;
 }
+
 
 .testimonials {
   // position: fixed;
   //bottom: 0;
-  left: 0;
+
   width: 100%;
-  background-color: #272727;
-  padding: 20px;
+   .options{
+    display: flex;
+   }
+
 
 }
 
