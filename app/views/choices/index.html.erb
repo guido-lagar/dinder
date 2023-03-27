@@ -62,7 +62,7 @@
                   <h3 class="card-title"><% choice.options %>
 
           <% else %>
-          <% option = Option.all.find(result.sample) %>
+          <% option = Option.all.find(result.first) %>
           <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
           <%= option.name %>
 

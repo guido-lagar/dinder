@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="pages/home.scss">
-  </head>
-  <body>
-    <div class="landing-page">
-      <div class="background-image"></div>
-      <div class="cta-container">
+
+    <div class="landing-page" id="landing-page">
+      <div class="background-image" ></div>
+      <div class="cta-container" id="landing-name">
         <h1>Date nights in just a couple clicks</h1>
         <div class="btn btn-secondary btn-lg">
           <%= link_to "Plan new date", choices_path, data: {turbo_method: :post } %>
@@ -51,27 +45,22 @@
 
 
     <script>
-      // select the testimonials element
-      const testimonials = document.querySelector('.testimonials');
-
-      // add a scroll event listener to the window
+     const range = 600;
       window.addEventListener('scroll', function() {
-        // get the scroll position of the window
-        const scrollPosition = window.scrollY;
-        // get the height of the window
-        const windowHeight = window.innerHeight;
-        // get the height of the document
-        const documentHeight = document.body.clientHeight;
+        const ctaContainerEl = document.getElementsByClassName('cta-container')[0];
+        const ctaContainerTitle = document.getElementsByClassName('cta-title')[0];
 
-        // check if the user has scrolled to the bottom of the page
-        if (scrollPosition + windowHeight >= documentHeight) {
-          // display the testimonials
-          testimonials.style.display = 'block';
-        } else {
-          // hide the testimonials
-          testimonials.style.display = 'none';
+        const distanceTop = ctaContainerEl.getBoundingClientRect().top;
+        const calc = 1 + distanceTop / (distanceTop + range);
+
+        ctaContainerTitle.style.opacity = calc;
+        if (calc > '1') {
+            ctaContainerTitle.style.opacity = 1;
+        } else if ( calc < '0' ) {
+            ctaContainerTitle.style.opacity = 0;
         }
-      });
+      }, false);
+
+
+
     </script>
-  </body>
-</html>
