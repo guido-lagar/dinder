@@ -21,7 +21,6 @@ class ChoicesController < ApplicationController
   end
 
   def edit
-
     @endgame = OptionChoice.where(choice_id: params[:id])
     @choice = Choice.find(params[:id])
     @options_our = @choice.options.ids
@@ -34,10 +33,8 @@ class ChoicesController < ApplicationController
         @optionk = @options.find(@k)
         @optioni = @options.find(@i)
       break
-       end
-     end
-
-
+      end
+    end
   end
 
   def new
