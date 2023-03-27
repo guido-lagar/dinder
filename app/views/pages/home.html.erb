@@ -1,76 +1,86 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="pages/home.scss">
-  </head>
-  <body>
-    <div class="landing-page">
-      <div class="background-image"></div>
-      <div class="cta-container">
-        <h1>Date nights in just a couple clicks</h1>
-        <%= button_to "Plan new date", choices_path, data: {turbo_method: :post, class:"start-button"} %>
 
+<div class="landing-page">
+
+  <div class="cta-container">
+
+      <h1 class="cta-title"> Date nights in just a couple clicks</h1>
+
+      <div class="btn btn-secondary btn-lg action-btn">
+        <%= link_to "Plan new date", choices_path, data: {turbo_method: :post } %>
       </div>
-    </div>
 
-  <div class="testimonials">
+  </div>
+ <div class="testimonials">
 
-  <h2>How it works</h2>
-  <ul>
-    <li>
-      <h3>👆</h3>
-      <p>1. Select from a wide range of date options to start.</p>
-    </li>
-    <li>
-      <h3>📧</h3>
-      <p>2. Share with your partner so they can do it too.</p>
-    </li>
-    <li>
-      <h3>🥂</h3>
-      <p>3. See your matching choices and enjoy the night!</p>
-    </li>
-  </ul>
-  <h2>Testimonials</h2>
-  <ul>
-    <li>
-      <img src="https://i.pravatar.cc/150?img=13" alt="Avatar 1">
-      <em>"Wow, I'm so grateful for this app, it's saved my relationship... unbelievable!" - John</em>
-    </li>
-    <li>
-      <img src="https://i.pravatar.cc/150?img=34" alt="Avatar 2">
-      <em>"I love this app! It makes date nights fun and easy. My husband and I have been having a blast with it!" - Sarah</em>
-    </li>
-    <li>
-      <img src="https://i.pravatar.cc/150?img=8" alt="Avatar 3">
-      <em>"I'm so glad I found this app. It's been a game-changer for me and my partner. We use it every night!" - Michael</em>
-    </li>
-  </ul>
+      <h2>How it works</h2>
+        <ul>
+          <li>
+            <h3>👆</h3>
+            <p>1. Select from a wide range of date options to start.</p>
+          </li>
+          <li>
+            <h3>📧</h3>
+            <p>2. Share with your partner so they can do it too.</p>
+          </li>
+          <li>
+            <h3>🥂</h3>
+            <p>3. See your matching choices and enjoy the night!</p>
+          </li>
+        </ul>
+      <h2>Testimonials</h2>
+        <ul>
+          <li>
+            <img src="https://i.pravatar.cc/150?img=13" alt="Avatar 1">
+            <em>"Wow, I'm so grateful for this app, it's saved my relationship... unbelievable!" - John</em>
+          </li>
+          <li>
+            <img src="https://i.pravatar.cc/150?img=34" alt="Avatar 2">
+            <em>"I love this app! It makes date nights fun and easy. My husband and I have been having a blast with it!" - Sarah</em>
+          </li>
+          <li>
+            <img src="https://i.pravatar.cc/150?img=8" alt="Avatar 3">
+            <em>"I'm so glad I found this app. It's been a game-changer for me and my partner. We use it every night!" - Michael</em>
+          </li>
+        </ul>
+  </div>
+
 </div>
 
 
     <script>
-      // select the testimonials element
-      const testimonials = document.querySelector('.testimonials');
 
-      // add a scroll event listener to the window
+    window.addEventListener('load', function() {
+      const ctaContainerEl = document.getElementsByClassName('cta-container')[0];
+      ctaContainerEl.style.height = document.documentElement.clientHeight - 40 + 'px';
+    })
+
+    const range = 600;
       window.addEventListener('scroll', function() {
-        // get the scroll position of the window
-        const scrollPosition = window.scrollY;
-        // get the height of the window
-        const windowHeight = window.innerHeight;
-        // get the height of the document
-        const documentHeight = document.body.clientHeight;
+        const ctaContainerEl = document.getElementsByClassName('cta-container')[0];
+        const ctaContainerTitle = document.getElementsByClassName('cta-title')[0];
+        const ctaContainerButton = document.getElementsByClassName('btn')[0];
+        const testimonials = document.querySelector('.testimonials');
 
-        // check if the user has scrolled to the bottom of the page
-        if (scrollPosition + windowHeight >= documentHeight) {
-          // display the testimonials
-          testimonials.style.display = 'block';
-        } else {
-          // hide the testimonials
-          testimonials.style.display = 'none';
+        const distanceTop = ctaContainerEl.getBoundingClientRect().top;
+        const calc = 1 + distanceTop / (distanceTop + range);
+
+        ctaContainerTitle.style.opacity = calc;
+        if (calc > '1') {
+            ctaContainerTitle.style.opacity = 1;
+
+
+
+        } else if ( calc > '0.6' ) {
+            ctaContainerButton.style.display = 'block';
+
+        } else if ( calc < '0' ) {
+            ctaContainerTitle.style.opacity = 0;
+            ctaContainerButton.style.display = 'none';
+
+
         }
-      });
+      }, false);
+
+
+
     </script>
-  </body>
-</html>

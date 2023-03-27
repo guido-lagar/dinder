@@ -16,7 +16,7 @@
                   <%= cl_image_tag @optioni.photo.key,  :crop=>"fill", data: {
                   add_in_choices_target: "event",
                   action: "click->add-in-choices#add",
-                  id: @optioni.id,
+                  option_id: @optioni.id,
                   }
                   %>
 
@@ -43,7 +43,7 @@
                 <%= cl_image_tag @optionk.photo.key,  :crop=>"fill", data: {
                 add_in_choices_target: "event",
                 action: "click->add-in-choices#add",
-                id: @optionk.id
+                option_id: @optionk.id
 
                 }
                 %>
