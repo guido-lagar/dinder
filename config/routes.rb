@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   resources :options
   resources :choices
+  # config/routes.rb
+  get '/settings', to: 'settings#edit'
+  patch '/settings', to: 'settings#update'
 end
