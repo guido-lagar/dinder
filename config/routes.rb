@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  get 'login/create', to: 'logins#create', as: :create_login
-  devise_for :users
-  root to: "pages#home"
+  get 'receiptors/new'
+  get 'receiptors/create'
 
-  resources :options
-  resources :choices
-  # config/routes.rb
+  devise_for :users
+
+  root to: "pages#home"
   get '/settings', to: 'settings#edit'
   patch '/settings', to: 'settings#update'
+
+  resources :choices, only: %i[index show create new edit] do
+    resources :receiptors
+    resources :options do
+    resources :option_choices, only: :create
+  end
+end
+
+
 end

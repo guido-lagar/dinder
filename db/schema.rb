@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_184055) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_24_150457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,12 +50,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_184055) do
   end
 
   create_table "option_choices", force: :cascade do |t|
-    t.bigint "options_id", null: false
-    t.bigint "choices_id", null: false
+    t.bigint "option_id", null: false
+    t.bigint "choice_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["choices_id"], name: "index_option_choices_on_choices_id"
-    t.index ["options_id"], name: "index_option_choices_on_options_id"
+    t.index ["choice_id"], name: "index_option_choices_on_choice_id"
+    t.index ["option_id"], name: "index_option_choices_on_option_id"
   end
 
   create_table "options", force: :cascade do |t|
@@ -63,6 +63,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_184055) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "receiptors", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "choice_id", null: false
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choice_id"], name: "index_receiptors_on_choice_id"
+    t.index ["user_id"], name: "index_receiptors_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_184055) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "choices", "users"
-  add_foreign_key "option_choices", "choices", column: "choices_id"
-  add_foreign_key "option_choices", "options", column: "options_id"
+  add_foreign_key "option_choices", "choices"
+  add_foreign_key "option_choices", "options"
+  add_foreign_key "receiptors", "choices"
+  add_foreign_key "receiptors", "users"
 end

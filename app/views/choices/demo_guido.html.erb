@@ -1,0 +1,27 @@
+
+<div class="container">
+  <h2 class="text-center m-3">Your Dates</h2>
+</div>
+
+<% if @choices == "" %>
+  <h3> You don't have any active game yet </h3>
+<% else %>
+  <% @choices.each do |c| %>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: absolute;">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409403/Museo_Moderno_d53mcq.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <div class="clearfix mb-3">
+                <span class="float-start badge rounded-pill bg-primary">USERX</span>
+                <span class="float-end">Date</span>
+              </div>
+              <h5 class="card-title">Status: Waiting for other users to complete their game...</h5>
+                <div class="text-center my-4"> <a href="#" class="btn btn-warning">View your picks</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
