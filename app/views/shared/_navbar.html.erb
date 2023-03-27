@@ -15,7 +15,7 @@
             <%= image_tag "https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679080308/production/y9ekpkdyx64i42pz4fsxroif2v1a.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-              <%= link_to "Plan a new Date", "/choices/show", class: "dropdown-item" %>
+              <%= link_to "Plan a new Date", "/choices/:id", class: "dropdown-item" %>
               <%= link_to "Settings", "/settings/#", class: "dropdown-item" %>
               <%= link_to "My Dates", "/choices", class: "dropdown-item" %>
 
