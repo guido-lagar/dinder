@@ -30,11 +30,11 @@ class ChoicesController < ApplicationController
     loop do
       @i = @options.ids.sample
       @k =  @options_our.sample
-      if @options_our.count(@k) == 1 && @i != @k
+      if @options_our.count(@k) == 1 && @i != @k && @options_our.count(@i) == 0
         @optionk = @options.find(@k)
         @optioni = @options.find(@i)
       break
-       end
+      end
      end
 
 
