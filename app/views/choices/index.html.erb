@@ -61,10 +61,12 @@
                 <%# <div class="card-body">
                   <h3 class="card-title"><% choice.options %>
 
+          <% elsif !result.first.nil? %>
+            <% option = Option.all.find(result.first) %>
+            <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
+            <%= option.name %>
           <% else %>
-          <% option = Option.all.find(result.first) %>
-          <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
-          <%= option.name %>
+          <p>Nothing yet</p>
 
         <% end %>
     <% end %>
