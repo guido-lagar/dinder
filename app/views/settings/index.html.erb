@@ -1,0 +1,27 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/pages/settings.scss">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="settings-container container">
+  <h1 class="settings-header">User Settings</h1>
+
+  <%= form_for @user, url: settings_path, html: { method: :put, multipart: true }, class: "settings-form" do |f| %>
+
+    <div class="row">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="row">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="row">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <%= f.submit "Save Changes" %>
+  <% end %>
+</div>

@@ -1,0 +1,81 @@
+/* User Settings page styles */
+
+.settings-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 160px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.settings-header {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #000000;
+}
+
+.settings-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="email"],
+.settings-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.settings-form input[type="file"] {
+  margin-top: 10px;
+}
+
+.settings-form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #337ab7;
+  color: #f2efef;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.settings-form input[type="submit"]:hover {
+  background-color: #2e6da4;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+  .settings-container {
+    max-width: 100%;
+    padding: 10px;
+    border: none;
+  }
+
+  .settings-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .settings-form input[type="text"],
+  .settings-form input[type="email"],
+  .settings-form input[type="password"],
+  .settings-form input[type="file"] {
+    margin-bottom: 10px;
+  }
+
+  .settings-form input[type="submit"] {
+    margin-top: 10px;
+  }
+}
