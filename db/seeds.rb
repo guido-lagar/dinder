@@ -13,9 +13,9 @@ Option.destroy_all
 User.destroy_all
 
 puts "creating user"
-user1 = User.new(email: "olga@gmail.com", password: "123456qwerty")
+user1 = User.new(name: "Olga", email: "olga@gmail.com", password: "123456qwerty")
 user1.save!
-user2 = User.new(email: "guido@gmail.com", password: "123456")
+user2 = User.new(name: "Guido", email: "guido@gmail.com", password: "123456")
 user2.save!
 
 puts "user created"
