@@ -41,7 +41,7 @@
         <div class="container-fluid bg-trasparent my-4 p-3" style="position: absolute;">
           <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
             <div class="col">
-              <div class="card h-100 w-50 shadow-sm">
+              <div class="card card-index">
                 <% result = choice.options.ids %>
                 <% if result.size == 5%>
                     <% choice.receiptors.each do |receiptor|%>
@@ -54,10 +54,10 @@
                   <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
                   <%= option.name %>
 
-                <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) == 1 })%>
+                <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
                     <% option = Option.all.find(result.first) %>
                     <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
-                    <%= option.name %>
+                    <p> Date with </p>
                 <% end %>
 
               </div>

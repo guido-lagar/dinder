@@ -78,7 +78,7 @@ option14 = Option.new(name: "Creed III", category: "Movie")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679408665/Creed_III_xunmt9.jpg")
 option14.photo.attach(io: photo, filename: "creediii.png", content_type: "image/jpg")
 option14.save!
-option15 = Option.new(name: "SHAZAM! FURY OF THE GODS", category: "Movie")
+option15 = Option.new(name: "Shazam! Fury of the Gods", category: "Movie")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679408663/shazam_r3ofrd.jpg")
 option15.photo.attach(io: photo, filename: "shazam.png", content_type: "image/jpg")
 option15.save!

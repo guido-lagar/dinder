@@ -8,8 +8,10 @@
 .card-index {
   background-size: cover;
   background-position: center;
+  border: 12px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 10rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
   display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -18,5 +20,4 @@
   color: black;
   font-weight: bolder;
   // text-shadow: 0 0 10px rgba(0,0,0,0.7);
-  border: none;
 }
