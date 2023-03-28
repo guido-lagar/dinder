@@ -5,8 +5,6 @@
     <% option2 = @options[2]%>
     <% option3 = @options[3]%>
 
-
-
     <div class="row" style="justify-content: center;">
 
         <div class="col-6">
@@ -14,27 +12,20 @@
               <%= link_to choice_option_option_choices_path(@choice, @optioni), data: {turbo_method: :post } do%>
                 <div class = "cube left-cube">
 
-          </div>
-          <% end %>
-        </div>
-          <div class="cube-name text-center"><h2><%= @optioni.name %></h2></div>
-      </div>
+                  <%= cl_image_tag @optioni.photo.key, data: {
+                  add_in_choices_target: "event",
+                  action: "click->add-in-choices#add",
+                  id: @optioni.id,
+                  }
+                  %>
 
-      <div class="col">
-        <div class="cube-container">
-          <%= link_to choice_option_option_choices_path(@choice, @optionk), data: {turbo_method: :post } do%>
-            <div class = "cube">
+                  <%= cl_image_tag option2.photo.key %>
+                  <%= cl_image_tag option3.photo.key %>
+                  <%= cl_image_tag option1.photo.key %>
 
-              <%= cl_image_tag @optionk.photo.key,  :crop=>"fill", data: {
-              add_in_choices_target: "event",
-              action: "click->add-in-choices#add",
-              id: @optionk.id
-              }
-              %>
+                </div>
+             <% end %>
 
-              <%= cl_image_tag option1.photo.key,  :crop=>"fill" %>
-              <%= cl_image_tag option2.photo.key,  :crop=>"fill" %>
-              <%= cl_image_tag option3.photo.key,  :crop=>"fill" %>
             </div>
 
         </div>
