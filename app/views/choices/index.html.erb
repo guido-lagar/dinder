@@ -52,8 +52,10 @@
               <% option = Option.all.find(id) %>
               <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 151, height: 151 %>
               <div class="card card-text">
-                <p> Date with </p>
-                <p> Result: </p>
+                <% choice.receiptors.each do |receiptor|%>
+               <p> Date with <%=receiptor.name%></p>
+              <% end %>
+                <p> Match: </p>
                 <%= option.name %>
               </div>
             </div>
@@ -63,7 +65,9 @@
                 <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 151, height: 151 %>
               <%# <%= link_to option_path(option), class:"text-decoration-none" do%>
               <div class="card card-text">
-                <p> Date with </p>
+                <% choice.receiptors.each do |receiptor|%>
+                  <p> Date with <%=receiptor.name%></p>
+                <% end %>
                 <p> We couldn't find any match </p>
               </div>
             </div>

@@ -1,0 +1,9 @@
+
+    <h1>Thank you for the game. Please enter your partner's email: </h1>
+    <p>
+      <%= simple_form_for [Receiptor.new, @choice] do |f| %>
+
+      <%= f.input :email %>
+      <%= f.button :submit %>
+      <% end %>
+    </p>
