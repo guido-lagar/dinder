@@ -3,26 +3,27 @@
     <p class="d-none"></p>
   <% else %>
     <h2 class="text-center m-3">Your Invitations</h2>
+
     <div class="cards">
       <% current_user.receiptors.each do |receiptor| %>
         <% if receiptor.choice.options.length == 5 %>
                 <h3 class="card-title">You have an invitation for a date</h3>
                 <p><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your pick</a></p>
-        <% else %>
-          <% receiptor.choice do |choice| %>
-            <% result = choice.options.ids %>
-            <% if result.detect{ |e| result.count(e) > 1 } %>
-              <% id = result.detect{ |e| result.count(e) > 1 } %>
-              <% option = Option.all.find(id) %>
-              <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
-              <%= option.name %>
-              <%= choice.user.email %>
-            <% else %>
-              <% option = Option.all.find(result.sample) %>
-              <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
-              <%= option.name %>
-            <% end %>
-          <% end %>
+        <%# <% elsif receiptor.choice.options.length == 10 %>
+          <%# <% receiptor.choice do |choice| %>
+            <%# <% result = choice.options.ids %>
+            <%# <% if result.detect{ |e| result.count(e) > 1 } %>
+              <%# <% id = result.detect{ |e| result.count(e) > 1 } %>
+              <%# <% option = Option.all.find(id) %>
+              <%# <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
+              <%# <%= option.name %>
+              <%# <%= choice.user.email %>
+            <%# <% else %>
+              <%# <% option = Option.all.find(result.sample) %>
+              <%# <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
+              <%# <%= option.name %>
+            <%# <% end %>
+          <%# <% end %>
          <% end %>
       <% end %>
     </div>
@@ -33,29 +34,34 @@
   <% if current_user.choices.empty? %>
     <p>No games yet! <%= link_to "Plan a new date", choices_path, data: {turbo_method: :post } %></p>
   <% else %>
-    <h2 class="text-center m-3">Your started Dates</h2>
+    <h2 class="text-center m-3">Your Dates</h2>
       <% current_user.choices.each do |choice| %>
         <div class="container-fluid bg-trasparent my-4 p-3" style="position: absolute;">
           <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
             <div class="col">
               <div class="card h-100 w-50 shadow-sm">
                 <% result = choice.options.ids %>
-                <% if result.detect{ |e| result.count(e) > 1 } %>
+                <% if result.size == 5%>
+                    <% choice.receiptors.each do |receiptor|%>
+                    <p>Status: Waiting for your date's (<%=receiptor.email%>) options...</p>
+                    <% end %>
+
+                <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
                   <% id = result.detect{ |e| result.count(e) > 1 } %>
                   <% option = Option.all.find(id) %>
                   <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
                   <%= option.name %>
-                  <%= receiptor.email %>
-                <% elsif !result.first.nil? %>
+
+                <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) == 1 })%>
                     <% option = Option.all.find(result.first) %>
                     <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
                     <%= option.name %>
                 <% end %>
+
               </div>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
-
 </div>
