@@ -16,11 +16,15 @@
 
 .navbar-lewagon .nav-link {
   color: white;
-  font-size: larger;
+  font-size: large;
   font-style: bold;
   font-family: "Archivo Black";
   margin-right: 20px;
 }
 .navbar-lewagon .nav-item .avatar {
   margin-right: 10px;
+}
+
+.navbar-lewagon .nav-link:hover {
+  transform: scale(1.1);
 }

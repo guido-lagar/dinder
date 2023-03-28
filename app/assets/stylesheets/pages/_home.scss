@@ -102,12 +102,24 @@ text-shadow: 1px 1px #b3b3b3;
   //  top: -50px;
   //  right: -250px;
   //  position: relative;
+  
  }
- .step-card {
 
+.step-card {
+  cursor: pointer;
 }
 
 .step-card:hover {
   transform: scale(1.1);
   background-image: linear-gradient(to right,#ff6472, #ffb2bc);
+  .card-h {
+    color: white;
+  }
+
+}
+
+
+.card-h {
+  color: #d3525c;
+  font-weight: bold;
 }
