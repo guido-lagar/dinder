@@ -1,11 +1,15 @@
+
 .cards-index {
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   flex-grow: 10;
 }
 
+
 .card-index {
+
   background-size: cover;
   background-position: center;
   border: 12px;

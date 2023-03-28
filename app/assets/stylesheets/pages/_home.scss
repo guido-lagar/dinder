@@ -40,9 +40,9 @@ h1 {
   color: white;
 }
 
-.btn-light {
+.btn-1 {
   background-image: linear-gradient(to right,#ff6472, #ffb2bc);
-  // color: #fff;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem 2rem;
@@ -51,11 +51,14 @@ h1 {
   cursor: pointer;
   transition: background-image 0.4s ease;
   transition: color 0.4s ease;
+  a {
+    color: #fff;
+  }
 
   text-decoration: none;
 }
 
-.btn-light:hover {
+.btn-1:hover {
   background-image: linear-gradient(to right,#d3525c, #ce9199);
 
   a {
@@ -74,87 +77,37 @@ h1 {
    .options {
     display: flex;
 
+
+    // text-align: center;
+
    }
 
+}
+// .parent-card {
+//   position: absolute;
+// }
 
+.color-text {
+color: rgb(203, 203, 203);
+font-weight: bold;
+text-shadow: 1px 1px #b3b3b3;
 }
 
-.testimonials h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.testimonials ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.testimonials li {
-  flex-basis: calc(33.33% - 20px);
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  display: flex;
-  align-items: center;
-}
 
 .testimonial-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+   width: 60px;
+   border-radius: 50%;
+   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+   border: white 1px solid;
+  //  top: -50px;
+  //  right: -250px;
+  //  position: relative;
+ }
+ .step-card {
+
 }
 
-.testimonial-content {
-  text-align: right;
-  padding-left: 10px;
-}
-
-.testimonial-box p {
-  font-size: 14px;
-  margin-bottom: 5px;
-  margin-inline: 100px;
-  font-style: italic;
-}
-
-.testimonials h2:nth-of-type(2) {
-  margin-top: 40px;
-}
-
-.testimonials h2:nth-of-type(2) + ul li {
-  flex-basis: calc(33.33% - 20px);
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  display: flex;
-  align-items: center;
-}
-
-.testimonials h2:nth-of-type(2) + ul li h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.testimonials h2:nth-of-type(2) + ul li p {
-  font-size: 14px;
-  margin-bottom: 5px;
-  margin-inline: 100px;
-  font-style: italic;
-}
-
-.btn {
-  border-radius: 5%;
-}
-
-.btn a {
-  color: white;
-  text-decoration: none;
+.step-card:hover {
+  transform: scale(1.1);
+  background-image: linear-gradient(to right,#ff6472, #ffb2bc);
 }
