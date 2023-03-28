@@ -3,11 +3,10 @@
     <p class="d-none"></p>
   <% else %>
     <h2 class="text-center m-3">Your Invitations</h2>
-
     <div class="cards cards-index">
       <% current_user.receiptors.each do |receiptor| %>
         <% if receiptor.choice.options.length == 5 %>
-          <div class="card card-index h-80 mt-5 p-3">
+          <div class="card card-index mt-5 p-3">
                 <h3 class="card-title">You have an invitation to plan a date:</h3>
                 <p class="card-text"><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your pick</a></p>
         <%# <% elsif receiptor.choice.options.length == 10 %>
@@ -37,33 +36,40 @@
     <p><%= link_to "Start your own date", choices_path, data: {turbo_method: :post } %></p>
   <% else %>
     <h2 class="text-center m-3">Your Dates</h2>
+    <div class="cards cards-index">
       <% current_user.choices.each do |choice| %>
-        <div class="container-fluid bg-trasparent my-4 p-3" style="position: absolute;">
-          <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-            <div class="col">
-              <div class="card card-index">
-                <% result = choice.options.ids %>
-                <% if result.size == 5%>
-                    <% choice.receiptors.each do |receiptor|%>
-                    <p>Waiting for <%=receiptor.name%>'s results...</p>
-                    <% end %>
-
-                <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
-                  <% id = result.detect{ |e| result.count(e) > 1 } %>
-                  <% option = Option.all.find(id) %>
-                  <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
-                  <%= option.name %>
-
-                <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
-                    <% option = Option.all.find(result.first) %>
-                    <%= cl_image_tag option.photo.key,  :crop=>"fill",  width: 100, height: 151 %>
-                    <p> Date with </p>
-                <% end %>
-
+        <div class="col">
+          <% result = choice.options.ids %>
+          <% if result.size == 5%>
+            <div class="card card-index-wait mt-5 p-3">
+              <% choice.receiptors.each do |receiptor|%>
+              <p>Waiting for <%=receiptor.name%>'s results...</p>
+              <% end %>
+            </div>
+          <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
+            <div class="card card-index mt-5 p-3">
+              <% id = result.detect{ |e| result.count(e) > 1 } %>
+              <% option = Option.all.find(id) %>
+              <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 151, height: 151 %>
+              <div class="card card-text">
+                <p> Date with </p>
+                <p> Result: </p>
+                <%= option.name %>
               </div>
             </div>
-          </div>
+          <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
+            <div class="card card-index mt-5 p-3">
+              <% option = Option.all.find(result.first) %>
+                <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 151, height: 151 %>
+              <%# <%= link_to option_path(option), class:"text-decoration-none" do%>
+              <div class="card card-text">
+                <p> Date with </p>
+                <p> We couldn't find any match </p>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
-    <% end %>
+    </div>
+  <% end %>
 </div>
