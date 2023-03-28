@@ -1,14 +1,13 @@
-.cards {
+.cards-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   flex-grow: 10;
 }
 
-.card {
+.card-index {
   background-size: cover;
   background-position: center;
-  height: 60%;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
