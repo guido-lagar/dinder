@@ -4,6 +4,7 @@
     <p>
       <%= simple_form_for [@choice, Receiptor.new] do |f| %>
 
+      <%= f.input :name %>
       <%= f.input :email %>
       <%= f.button :submit %>
       <% end %>
