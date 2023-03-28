@@ -4,11 +4,12 @@
   <% else %>
     <h2 class="text-center m-3">Your Invitations</h2>
 
-    <div class="cards cards-g">
+    <div class="cards cards-index">
       <% current_user.receiptors.each do |receiptor| %>
         <% if receiptor.choice.options.length == 5 %>
-                <h3 class="card-title">You have an invitation for a date</h3>
-                <p><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your pick</a></p>
+          <div class="card card-index h-80 mt-5 p-3">
+                <h3 class="card-title">You have an invitation to plan a date:</h3>
+                <p class="card-text"><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your pick</a></p>
         <%# <% elsif receiptor.choice.options.length == 10 %>
           <%# <% receiptor.choice do |choice| %>
             <%# <% result = choice.options.ids %>
@@ -24,6 +25,7 @@
               <%# <%= option.name %>
             <%# <% end %>
           <%# <% end %>
+          </div>
          <% end %>
       <% end %>
     </div>
@@ -32,7 +34,7 @@
 
 <div class="container mt-5 pt-5">
   <% if current_user.choices.empty? %>
-    <p>No games yet! <%= link_to "Plan a new date", choices_path, data: {turbo_method: :post } %></p>
+    <p><%= link_to "Start your own date", choices_path, data: {turbo_method: :post } %></p>
   <% else %>
     <h2 class="text-center m-3">Your Dates</h2>
       <% current_user.choices.each do |choice| %>
@@ -43,7 +45,7 @@
                 <% result = choice.options.ids %>
                 <% if result.size == 5%>
                     <% choice.receiptors.each do |receiptor|%>
-                    <p>Status: Waiting for your date's (<%=receiptor.email%>) options...</p>
+                    <p>Waiting for <%=receiptor.name%>'s results...</p>
                     <% end %>
 
                 <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
