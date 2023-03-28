@@ -1,11 +1,11 @@
-.cards {
+.cards-g {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   flex-grow: 10;
 }
 
-.card {
+.card-g {
   background-size: cover;
   background-position: center;
   height: 60%;

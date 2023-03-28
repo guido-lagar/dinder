@@ -4,7 +4,7 @@
   <% else %>
     <h2 class="text-center m-3">Your Invitations</h2>
 
-    <div class="cards">
+    <div class="cards cards-g">
       <% current_user.receiptors.each do |receiptor| %>
         <% if receiptor.choice.options.length == 5 %>
                 <h3 class="card-title">You have an invitation for a date</h3>
