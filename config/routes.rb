@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
+
 end
 
 # Path: app/controllers/settings_controller.rb
