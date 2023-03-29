@@ -62,7 +62,7 @@
 
 </div>
 
-<container-new>
+<div class="container-new">
             <div class="parent-div">
                 <div class="img-container">
                   <div id="img1">
@@ -78,7 +78,7 @@
                   </div>
                 </div>
               </div>
-</container-new>
+</div>
 
 
 
@@ -88,7 +88,7 @@
 
 @keyframes reveal-left-to-right {
   from {
-    opacity: 1;
+    opacity: 0;
     transform: translateX(110%);
   }
   to {
@@ -99,7 +99,7 @@
 
 @keyframes reveal-right-to-left {
   from {
-    opacity: 1;
+    opacity: 0;
     transform: translateX(-110%);
   }
   to {
@@ -120,31 +120,42 @@
 }
 
 .container-new {
-  background-color: navy;
-  min-height: 100vh;
+  position: relative;
+  top: -400px;
+  left: 11.5px;
+  background-color: transparent;
+  /* min-height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#container-show {
+  position: absolute;
+}
+
 .parent-div {
+
   background-color: transparent;
-  height: 100px;
+  height: 200px;
   width: 50%;
   display: flex;
   justify-content: space-between;
 }
 
 .line-break-container {
+
   display: flex;
   align-items: center;
 }
 
 #line-break {
-  width: 3px;
-  background-color: white;
+  width: 2px;
+
+  background-color: #ff6472;
   z-index: 3;
   animation: grow-line linear 1s forwards;
+  animation-delay: 1s;
 }
 
 .img-container {
@@ -157,9 +168,11 @@
 }
 
 #img1, #img2 {
-  color: black;
+  color: white;
+  background-color: rgba(255, 212, 216, 0.8);
   font-size: 1.25rem;
   overflow: hidden;
+  width: 300px;
 
   display: flex;
   justify-content: center;
@@ -168,28 +181,26 @@
 
 #img1 {
   transform: translateX(110%);
+  animation: reveal-left-to-right ease-out 1s forwards;
+  animation-delay: 1.5s;
 }
 
 #img2 {
   transform: translateX(-110%);
-}
-
-#img1.apply-animation {
-  animation: reveal-left-to-right ease-out 1s forwards;
-}
-
-#img2.apply-animation {
   animation: reveal-right-to-left ease-out 1s forwards;
+  animation-delay: 1.5s;
 }
+
+
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    const img1 = document.querySelector("#img1");
-    const img2 = document.querySelector("#img2");
-    img1.className += "apply-animation";
-    img2.className += "apply-animation";
-  }, 1300);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   setTimeout(() => {
+//     const img1 = document.querySelector("#img1");
+//     const img2 = document.querySelector("#img2");
+//     img1.className += "apply-animation";
+//     img2.className += "apply-animation";
+//   }, 1300);
+// });
 </script>
