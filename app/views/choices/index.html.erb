@@ -1,70 +1,113 @@
-<div class="container mt-1 pt-1">
-  <% if current_user.receiptors.empty? %>
-  <% else %>
-    <h2 class="text-center m-3">Your Invitations</h2>
-      <% current_user.receiptors.each do |receiptor| %>
-        <% if receiptor.choice.options.length == 5 %>
-          <h3 class="card-title mt-5 pt-5">You have an invitation to plan a date: <a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your picks</a></h3>
-         <% end %>
-      <% end %>
-  <% end %>
-</div>
 
-<div class="container mt-5 pt-5">
-  <% if current_user.choices.empty? %>
-    <p><%= link_to "Start your own date", choices_path, data: {turbo_method: :post } %></p>
-  <% else %>
-    <h2 class="text-center m-3">Your Dates</h2>
+
+<div class="container mt-1 pt-1">
+
+
+<%# <p style="color: black;">Test</p><%= current_user.name%>
+
+
     <div class="cards cards-index">
-      <% current_user.choices.each do |choice| %>
-        <div class="col">
-          <% result = choice.options.ids %>
-          <% if result.size == 5%>
-            <div class="card card-index mb-3 mt-5 p-3" style="max-width: 300px;">
-              <div class="row no-gutters">
-                <div class="card-body">
-                  <% choice.receiptors.each do |receiptor|%>
-                    <p class="card-text">Waiting for <%=receiptor.name%>'s results...</p>
-                    <p class="card-text"><a href="#" class="btn btn-secondary">Remind <%=receiptor.name%> to choose their options</a></p>
-                  <% end %>
-                </div>
+          <% current_user.receiptors.each do |receiptor| %>
+            <% if receiptor.choice.options.length == 5 %>
+              <div class="card card-index mt-5 p-3">
+                <h3 class="card-title">You have an invitation to plan a date:</h3>
+                <p class="card-text"><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your pick</a></p>
               </div>
-            </div>
-          <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
-            <div class="card card-index mb-3 mt-5 p-3" style="max-width:280px;">
-              <% id = result.detect{ |e| result.count(e) > 1 } %>
-              <% option = Option.all.find(id) %>
-              <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 181, height: 151 %>
-              <div class="row no-gutters">
-                <div class="card-body">
-                  <div class="card-text card-text-index">
-                    <% choice.receiptors.each do |receiptor|%>
-                      <p> Date with <strong><%=receiptor.name%></strong></p>
-                    <% end %>
-                    <p> Match: <%= option.name %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
-            <div class="card card-index mb-3 mt-5 p-3" style="max-width: 280px;">
-              <% option = Option.all.find(result.first) %>
-                <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 181, height: 151 %>
-              <%# <%= link_to option_path(option), class:"text-decoration-none" do%>
-              <div class="row no-gutters">
-                <div class="card-body">
-                  <div class="card-text card-text-index">
-                    <% choice.receiptors.each do |receiptor|%>
-                      <p> Date with <strong><%=receiptor.name%></strong></p>
-                    <% end %>
-                    <p> We couldn't find any match </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
+
+
+
+
+      <% if current_user.receiptors.empty? == false %>
+          <% current_user.receiptors.each do |receiptor| %>
+              <% result = receiptor.choice.options.ids %>
+                <% if(result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
+                        <div class="r1 card card-index mb-3 mt-5 p-3" style="max-width:280px;">
+                          <% id = result.detect{ |e| result.count(e) > 1 } %>
+                          <% option = Option.all.find(id) %>
+                          <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                          <div class="row no-gutters">
+                            <div class="card-body">
+                              <div class="card-text card-text-index">
+
+                                <p> Date with <strong><%=receiptor.choice.user.name %></strong></p>
+
+                                <p> Tonight: <%= option.name %></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
+                        <div class="r2 card card-index mb-3 mt-5 p-3" style="max-width: 280px;">
+                          <% option = Option.all.find(result.first) %>
+                          <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                          <div class="row no-gutters">
+                            <div class="card-body">
+                              <div class="card-text card-text-index">
+
+                                  <p> Date with <strong><%=receiptor.choice.user.name%></strong></p>
+                                  <p> Tonight: <%= option.name %></p>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                <% end %>
+
+          <% end %>
       <% end %>
+
+
+      <% if current_user.choices.empty? == false %>
+          <% current_user.choices.each do |choice| %>
+            <div class="col">
+              <% result = choice.options.ids %>
+              <% if result.size == 5%>
+                  <div class="r3 card card-index mb-3 mt-5 p-3" style="max-width: 300px;">
+                    <div class="row no-gutters">
+                      <div class="card-body">
+
+                          <p class="card-text">Waiting for <%=choice.receiptors.last.name%>'s results...</p>
+                          <p class="card-text"><a href="#" class="btn btn-secondary">Remind <%=receiptor.name%> to choose their options</a></p>
+
+                      </div>
+                    </div>
+                  </div>
+                <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
+                  <div class="r4 card card-index mb-3 mt-5 p-3" style="max-width:280px;">
+                    <% id = result.detect{ |e| result.count(e) > 1 } %>
+                    <% option = Option.all.find(id) %>
+                    <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                    <div class="row no-gutters">
+                      <div class="card-body">
+                        <div class="card-text card-text-index">
+                          <p> Date with <strong><%=choice.receiptors.last.name%></strong></p>
+                          <p> Match: <%= option.name %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
+                  <div class="r5 card card-index mb-3 mt-5 p-3" style="max-width: 280px;">
+                    <% option = Option.all.find(result.first) %>
+                    <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                    <div class="row no-gutters">
+                      <div class="card-body">
+                        <div class="card-text card-text-index">
+
+                            <p> Date with <strong><%=choice.receiptors.last.name%></strong></p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+
+
     </div>
-  <% end %>
 </div>
