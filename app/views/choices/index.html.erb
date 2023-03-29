@@ -2,16 +2,11 @@
   <% if current_user.receiptors.empty? %>
   <% else %>
     <h2 class="text-center m-3">Your Invitations</h2>
-    <div class="cards cards-index">
       <% current_user.receiptors.each do |receiptor| %>
         <% if receiptor.choice.options.length == 5 %>
-          <div class="card card-index mt-5 p-3">
-            <h3 class="card-title">You have an invitation to plan a date:</h3>
-            <p class="card-text"><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your pick</a></p>
-          </div>
+          <h3 class="card-title mt-5 pt-5">You have an invitation to plan a date: <a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-primary">Choose your picks</a></h3>
          <% end %>
       <% end %>
-    </div>
   <% end %>
 </div>
 
