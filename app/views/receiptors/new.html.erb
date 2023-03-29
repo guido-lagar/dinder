@@ -5,9 +5,12 @@
     <h2>Thank you for playing Dinder! Please add your partner's email:</h2>
     <p>
       <%= simple_form_for [@choice, Receiptor.new] do |f| %>
-        <div class="each-input" style="max-width:60%;"><%= f.input :name %></div>
-        <div class="each-input" style="max-width:60%;"><%= f.input :email %></div>
-        <div class="each-input-button" style="max-width:60%;"><%= f.submit 'Send an invitation', class:"btn btn-default btn-light" %></div>
+
+
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.button :submit, class: "btn btn-default" %>
+
       <% end %>
     </p>
   </div>
