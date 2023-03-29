@@ -56,7 +56,7 @@ img {
 }
 
 
-.cube img:hover {
+.cube img:nth-child(1):hover {
   box-shadow: 5px 5px 5px 5px rgba(255, 178, 188, 0.5);
 }
 .cube img:active {
