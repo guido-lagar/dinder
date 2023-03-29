@@ -1,13 +1,17 @@
-<div class="container mt-5 pt-5">
 
-    <h2>Thank you for playing Dinder! Please add your partner's email: </h2>
+<div class="container pt-5">
+
+  <div class="card-receiptor">
+    <h2>Thank you for playing Dinder! Please add your partner's email:</h2>
     <p>
       <%= simple_form_for [@choice, Receiptor.new] do |f| %>
+
 
       <%= f.input :name %>
       <%= f.input :email %>
       <%= f.button :submit, class: "btn btn-default" %>
+
       <% end %>
     </p>
-
+  </div>
 </div>
