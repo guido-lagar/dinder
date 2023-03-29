@@ -24,13 +24,22 @@
   // animation: rotateShadow 16s infinite;
 }
 
-.cube  {
+.left-cube  {
   height: 100%;
   width: 100%;
   position: relative;
   transform-style: preserve-3d;
   // transition: all 0.3s ease;
   animation: rotate 1.5s;
+
+}
+.right-cube  {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  // transition: all 0.3s ease;
+  animation: rotate-right 1.5s;
 
 }
 
@@ -108,6 +117,19 @@ img {
   100% { transform: rotateX(360deg); }
 }
 
+@keyframes rotate-right {
+  0% { transform: rotateX(0deg); }
+  10% { transform: rotateX(-10deg); }
+  20% { transform: rotateX(-20deg); }
+  30% { transform: rotateX(-40deg); }
+  40% { transform: rotateX(-90deg); }
+  50% { transform: rotateX(-140deg); }
+  60% { transform: rotateX(-270deg);}
+  70% {  transform: rotateX(-300deg); }
+  80% {  transform: rotateX(-330deg); }
+  90% {  transform: rotateX(-400deg); }
+  100% { transform: rotateX(-360deg); }
+}
 
 // .photo-of-option {
 
