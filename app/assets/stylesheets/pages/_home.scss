@@ -1,5 +1,6 @@
 /* Reset styles for the whole page */
 @import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 /* Specific CSS for your home-page */
 .landing-page {
@@ -123,4 +124,11 @@ text-shadow: 1px 1px #b3b3b3;
   color: #d3525c;
   font-weight: bold;
   font-family: 'Changa One', cursive;
+}
+
+p.card-text {
+  font-family: 'Poppins', sans-serif;
+}
+p.text-center {
+  font-family: 'Poppins', sans-serif;
 }
