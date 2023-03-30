@@ -82,19 +82,19 @@ option15 = Option.new(name: "Shazam! Fury of the Gods", category: "Movie")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679408663/shazam_r3ofrd.jpg")
 option15.photo.attach(io: photo, filename: "shazam.png", content_type: "image/jpg")
 option15.save!
-option16 = Option.new(name: "Museo de Arte Latinoamericano de Buenos Aires", category: "Museum")
+option16 = Option.new(name: "Museo de Arte Latinoamericano", category: "Museum")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409403/Museo_de_Arte_Latinoamericano_de_Buenos_Aires_a1rluc.jpg")
 option16.photo.attach(io: photo, filename: "malba.png", content_type: "image/jpg")
 option16.save!
-option17 = Option.new(name: "Museo Nacional de Bellas Artes", category: "Museum")
+option17 = Option.new(name: "Museo de Bellas Artes", category: "Museum")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409405/Museo_Nacional_de_Bellas_Artes_iyjvxu.png")
 option17.photo.attach(io: photo, filename: "mnba.png", content_type: "image/jpg")
 option17.save!
-option18 = Option.new(name: "Museo Nacional de Arte Decorativo", category: "Museum")
+option18 = Option.new(name: "Museo de Arte Decorativo", category: "Museum")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409404/Museo_Nacional_de_Arte_Decorativo_sljgda.jpg")
 option18.photo.attach(io: photo, filename: "mnad.png", content_type: "image/jpg")
 option18.save!
-option19 = Option.new(name: "Museo Historico Nacional del Cabildo y la Revolución de Mayo", category: "Museum")
+option19 = Option.new(name: "Museo Historico Nacional", category: "Museum")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409403/Museo_Hist%C3%B3rico_Nacional_del_Cabildo_y_la_Revoluci%C3%B3n_de_Mayo_pyag97.jpg")
 option19.photo.attach(io: photo, filename: "mhncrm.png", content_type: "image/jpg")
 option19.save!
