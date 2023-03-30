@@ -1,14 +1,35 @@
+<div class="landing-page">
 
-<div class="container pt-5">
+  <div class="newr">
 
-  <div class="card-receiptor">
-    <h2>Thank you for playing Dinder! Please add your partner's email:</h2>
-    <p>
-      <%= simple_form_for [@choice, Receiptor.new] do |f| %>
-        <div class="each-input" style="max-width:60%;"><%= f.input :name %></div>
-        <div class="each-input" style="max-width:60%;"><%= f.input :email %></div>
-        <div class="each-input-button" style="max-width:60%;"><%= f.button :submit, class:"btn btn-default btn-light" %></div>
-      <% end %>
-    </p>
+
+    <h2 class="header-newr">Your choices are saved!</h2>
+
+
+    <div class="card card-newr">
+
+      <div class="row" style="align-items: center">
+
+        <div class="col" style="padding-left: 50px">
+
+           <p>Please enter your partner's credentials:</p>
+            <%= simple_form_for [@choice, Receiptor.new] do |f| %>
+              <%= f.input :name %>
+              <%= f.input :email %>
+             <%= f.button :submit, class:"btn btn-default btn-light" %>
+            <% end %>
+        </div>
+
+        <div class="col" style="padding-left: 50px">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_XRMbLmFEl3.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+       </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+
 </div>
