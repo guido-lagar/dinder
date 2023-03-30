@@ -1,9 +1,4 @@
-.cards-index {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
 
-}
 
 // .card-index {
 //   // background-size: cover;
@@ -61,6 +56,17 @@
 //   margin-left: 5%;
 //   padding-bottom: 5%;
 // }
+
+.cards-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.container-cards {
+  margin-top: 150px;
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;

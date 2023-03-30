@@ -1,5 +1,5 @@
 
-<div class="container m-5">
+<div class="container container-cards">
 
 
   <div class="cards-index">
@@ -16,9 +16,9 @@
       <% end %>
 
     </div>
-  </div>
 
-  <div class="container m-5">
+
+
 
     <div class="cards-index">
       <% if current_user.receiptors.empty? == false %>
@@ -83,7 +83,7 @@
             <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
 
                 <% option = Option.all.find(result.first) %>
-                <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+
 
                         <div class="card-product c5">
                             <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
