@@ -19,9 +19,9 @@
 //   // text-shadow: 0 0 10px rgba(0,0,0,0.7);
 // }
 
-// .card-index:hover {
-//   transform: scale(1.1);
-// }
+.card-product:hover {
+  transform: scale(1.1);
+ }
 
 // .card-index p {
 //   size: 1px;
@@ -78,7 +78,7 @@ html {
 
 .card-product {
   overflow: hidden;
-  height: 150px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -93,19 +93,19 @@ html {
 }
 
 .card-product h2 {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Poppins', sans-serif;
   margin: 15px;
 }
 
 .card-product h3 {
-  font-size: 15px;
+  font-size: 20px;
   font-family: 'Poppins', sans-serif;
   margin: 15px;
 }
 
 .card-product p {
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 5px;

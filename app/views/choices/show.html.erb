@@ -1,88 +1,97 @@
 
+<%= render "shared/navbar" %>
 
+<div class=landing-page>
+    <div class="news">
+      <div class="container container-show-white">
 
+          <div class="container container-show">
 
- <div class="container container-show">
+              <% option1 = @options[1]%>
+              <% option2 = @options[2]%>
+              <% option3 = @options[3]%>
+              <% option4 = @options[4]%>
+              <% option5 = @options[5]%>
+              <% option6 = @options[6]%>
 
+              <div class="row" style="justify-content: center;">
 
-    <% option1 = @options[1]%>
-    <% option2 = @options[2]%>
-    <% option3 = @options[3]%>
+                  <div class="col-6">
+                      <div class="cube-container">
+                        <%= link_to choice_option_option_choices_path(@choice, @optioni), data: {turbo_method: :post } do%>
+                          <div class = "cube left-cube">
 
-    <div class="row" style="justify-content: center;">
+                            <%= cl_image_tag @optioni.photo.key, data: {
+                            add_in_choices_target: "event",
+                            action: "click->add-in-choices#add",
+                            id: @optioni.id,
+                            }
+                            %>
 
-        <div class="col-6">
-            <div class="cube-container">
-              <%= link_to choice_option_option_choices_path(@choice, @optioni), data: {turbo_method: :post } do%>
-                <div class = "cube left-cube">
+                            <%= cl_image_tag option2.photo.key %>
+                            <%= cl_image_tag option3.photo.key %>
+                            <%= cl_image_tag option1.photo.key %>
 
-                  <%= cl_image_tag @optioni.photo.key, data: {
-                  add_in_choices_target: "event",
-                  action: "click->add-in-choices#add",
-                  id: @optioni.id,
-                  }
-                  %>
+                          </div>
+                        <% end %>
 
-                  <%= cl_image_tag option2.photo.key %>
-                  <%= cl_image_tag option3.photo.key %>
-                  <%= cl_image_tag option1.photo.key %>
+                      </div>
 
-                </div>
-             <% end %>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="col-6">
-
-          <div class="cube-container">
-
-              <%= link_to choice_option_option_choices_path(@choice, @optionk), data: {turbo_method: :post } do%>
-
-                <div class = "cube right-cube">
-
-                  <%= cl_image_tag @optionk.photo.key,  :crop=>"fill", data: {
-                  add_in_choices_target: "event",
-                  action: "click->add-in-choices#add",
-                  id: @optionk.id
-
-                  }
-                  %>
-                <%= cl_image_tag option1.photo.key,  :crop=>"fill" %>
-                  <%= cl_image_tag option2.photo.key,  :crop=>"fill" %>
-                  <%= cl_image_tag option3.photo.key,  :crop=>"fill" %>
-                </div>
-              <% end %>
-            </div>
-                  <%# <div class="name-of-option-b">
-                  <%= @optionk.name %>
-                  <%# </div> %>
-         </div>
-
-    </div>
-
-</div>
-
-<div class="container-new">
-            <div class="parent-div">
-                <div class="img-container">
-                  <div id="img1">
-                    <%= @optioni.name %>
                   </div>
-                </div>
-                <div class="line-break-container">
-                  <div id="line-break"></div>
-                </div>
-                <div class="img-container">
-                  <div id="img2">
-                    <%= @optionk.name %>
+
+
+
+                  <div class="col-6">
+
+                    <div class="cube-container">
+
+                        <%= link_to choice_option_option_choices_path(@choice, @optionk), data: {turbo_method: :post } do%>
+
+                          <div class = "cube right-cube">
+
+                            <%= cl_image_tag @optionk.photo.key,  :crop=>"fill", data: {
+                            add_in_choices_target: "event",
+                            action: "click->add-in-choices#add",
+                            id: @optionk.id
+
+                            }
+                            %>
+                          <%= cl_image_tag option4.photo.key,  :crop=>"fill" %>
+                            <%= cl_image_tag option5.photo.key,  :crop=>"fill" %>
+                            <%= cl_image_tag option6.photo.key,  :crop=>"fill" %>
+                          </div>
+                        <% end %>
+                      </div>
+                          
                   </div>
-                </div>
+
               </div>
+
+          </div>
+
+      </div>
+    </div>
+        <div class="container-new">
+                <div class="parent-div">
+                    <div class="img-container">
+                      <div id="img1">
+                        <%= @optioni.name %>
+                      </div>
+                    </div>
+                    <div class="line-break-container">
+                      <div id="line-break"></div>
+                    </div>
+                    <div class="img-container">
+                      <div id="img2">
+                        <%= @optionk.name %>
+                      </div>
+                    </div>
+                </div>
+        </div>
 </div>
+
+
+
 
 
 
@@ -97,6 +106,7 @@
 @keyframes reveal-left-to-right {
   from {
     opacity: 0;
+
     transform: translateX(110%);
   }
   to {
@@ -118,6 +128,7 @@
 
 @keyframes grow-line {
   from {
+
     opacity: 0;
     height: 0;
   }
@@ -129,8 +140,8 @@
 
 .container-new {
   position: relative;
-  top: -400px;
-  left: 11.5px;
+  top: -600px;
+  right: 138px;
   background-color: transparent;
   /* min-height: 100vh; */
   display: flex;
@@ -151,20 +162,20 @@
   justify-content: space-between;
 }
 
-.line-break-container {
+ /* .line-break-container {
 
   display: flex;
   align-items: center;
 }
 
-#line-break {
+ #line-break {
   width: 2px;
 
   background-color: #ff6472;
   z-index: 3;
   animation: grow-line linear 1s forwards;
   animation-delay: 1s;
-}
+}  */
 
 .img-container {
   height: 100%;
@@ -181,10 +192,12 @@
   font-size: 1.5rem;
   overflow: hidden;
   width: 300px;
+  height: 70px;
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 
 #img1 {

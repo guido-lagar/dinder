@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+.container-show-white {
+background-color: white;
+border-radius: 30px;
+margin-top: 40px;
+
+}
+
 .container-show {
   width: 900px;
-
+  margin-bottom: 80px;
 }
 
 
@@ -56,6 +63,7 @@ img {
   width: 450px;
   height: 600px;
   background: white;
+  border-radius: 5px;
 }
 
 
@@ -89,7 +97,7 @@ img {
 
 @keyframes rotate {
   0% { transform: rotateX(0deg); }
-  10% { transform: rotateX(10deg); }
+
   20% { transform: rotateX(20deg); }
   30% { transform: rotateX(40deg); }
   40% { transform: rotateX(90deg); }
@@ -103,7 +111,7 @@ img {
 
 @keyframes rotate-right {
   0% { transform: rotateX(0deg); }
-  10% { transform: rotateX(-10deg); }
+
   20% { transform: rotateX(-20deg); }
   30% { transform: rotateX(-40deg); }
   40% { transform: rotateX(-90deg); }
@@ -129,4 +137,23 @@ img {
 .cube-name h2 {
   color: white;
   // background-color: rgba(255, 212, 216, 0.5);
+}
+
+.news {
+
+  height: 100vh;
+  // text-align: center;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  background-image: linear-gradient(to right,#ed6d76, #ffb2bc);
+  // background-size: cover;
+  // background-position: center;
+  // background-attachment: fixed;
+  width: 100%;
 }
