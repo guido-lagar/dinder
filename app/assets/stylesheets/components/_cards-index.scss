@@ -57,6 +57,10 @@
 //   padding-bottom: 5%;
 // }
 
+html {
+  background-image: linear-gradient(to right,#d3525c, #ce9199);
+}
+
 .cards-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -64,7 +68,7 @@
 }
 
 .container-cards {
-  margin-top: 150px;
+  padding-top: 150px;
 }
 
 .card-product {
@@ -99,7 +103,6 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
-
 
 .btn-2 {
   background-image: linear-gradient(to right,#ff6472, #ffb2bc);
