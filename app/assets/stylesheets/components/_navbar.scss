@@ -17,7 +17,6 @@
 .navbar-lewagon .navbar-brand img {
   margin-left: 50px;
   width: 60px;
-
 }
 
 .navbar-lewagon .nav-link {
@@ -25,7 +24,7 @@
   font-size: 18px;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  margin-right: 20px;
+  // margin-right: 10px;
   padding-left: 3rem;
   padding-right: 3rem;
 }
@@ -34,6 +33,7 @@
   width: 60px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 2px solid;
+  cursor: pointer;
 }
 
 .navbar-lewagon .nav-link:hover {
@@ -49,4 +49,19 @@
 
 .navbar-nav {
   align-items: center !important;
+}
+
+.btn-sign-up {
+  border: white 2px solid;
+  border-radius: 1rem;
+}
+
+.btn-sign-up:hover {
+  border: white 2px solid;
+  border-radius: 1rem;
+  transform: scale(1.1);
+}
+
+.dates {
+  padding-right: 1rem;
 }
