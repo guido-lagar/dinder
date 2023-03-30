@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 // .card-index {
 //   // background-size: cover;
@@ -35,27 +36,31 @@
 //   margin: 1px;
 // }
 
-// .card-receiptor {
-//   text-align: left;
-//   border: 10px;
-//   background-image: linear-gradient(to right,#d3525c, #ce9199);
-//   margin-top: 5%;
-//   border-radius: 4rem;
-// }
+ .card-receiptor {
+   text-align: left;
+  border: 10px;
+  background-image: linear-gradient(to right,#d3525c, #ce9199);
+ margin-top: 5%;
+  border-radius: 30px;
+ }
 
-// .card-receiptor h2 {
-//   margin-left: 5%;
-//   padding-top: 5%;
-// }
+ .card-receiptor h2 {
+ margin-left: 5%;
+  padding-top: 5%;
+ }
 
-// .each-input {
-//   margin-left: 5%;
-// }
+.each-input {
+   margin-left: 5%;
+ }
 
-// .each-input-button {
-//   margin-left: 5%;
-//   padding-bottom: 5%;
-// }
+.each-input-button {
+   margin-left: 5%;
+  padding-bottom: 5%;
+ }
+
+
+
+//  My code
 
 html {
   background-image: linear-gradient(to right,#d3525c, #ce9199);
@@ -64,7 +69,7 @@ html {
 .cards-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 30px;
 }
 
 .container-cards {
@@ -73,31 +78,43 @@ html {
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 20px;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 170px;
   object-fit: cover;
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  margin: 15px;
+}
+
+.card-product h3 {
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  margin: 15px;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   margin-top: 8px;
+  font-family: 'Changa One', cursive;
+}
+
+.card-product-infos {
+  width: 230px;
 }
 
 .card-product .card-product-infos {
@@ -109,7 +126,6 @@ html {
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
-  // padding: 1rem 2rem;
   border-radius: 20px;
   border: none;
   cursor: pointer;

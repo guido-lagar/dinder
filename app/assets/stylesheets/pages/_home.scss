@@ -1,5 +1,5 @@
 /* Reset styles for the whole page */
-
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
 
 /* Specific CSS for your home-page */
 .landing-page {
@@ -36,15 +36,15 @@
 
 h1 {
   font-size: 5rem;
-  font-weight: bold;
   color: white;
+  font-family: 'Changa One', cursive;
 }
 
 .btn-1 {
   background-image: linear-gradient(to right,#ff6472, #ffb2bc);
   color: #fff;
+  font-family: 'Changa One', cursive;
   font-size: 1.5rem;
-  font-weight: bold;
   padding: 1rem 2rem;
   border-radius: 20px;
   border: none;
@@ -102,7 +102,7 @@ text-shadow: 1px 1px #b3b3b3;
   //  top: -50px;
   //  right: -250px;
   //  position: relative;
-  
+
  }
 
 .step-card {
@@ -122,4 +122,5 @@ text-shadow: 1px 1px #b3b3b3;
 .card-h {
   color: #d3525c;
   font-weight: bold;
+  font-family: 'Changa One', cursive;
 }
