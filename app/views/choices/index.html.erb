@@ -1,100 +1,83 @@
+<div class= container-fluid style="background-image: linear-gradient(to right,#d3525c, #ce9199);">
+  <div class="container container-cards">
 
-<div class="container container-cards">
-
-
-  <div class="cards-index">
+    <div class="cards-index">
       <% current_user.receiptors.each do |receiptor| %>
         <% if receiptor.choice.options.length == 5 %>
-                <div class="card-product c1">
-                      <%= image_tag "https://plus.unsplash.com/premium_photo-1679870686635-14a739dbbb23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" %>
-                      <div class="card-product-infos">
-                        <h2><%=receiptor.choice.user.name%> sent you an invitation for a date!</h2>
-                        <p><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-2">Choose your pick</a></p>
-                      </div>
-                </div>
+          <div class="card-product c1">
+            <%= image_tag "https://plus.unsplash.com/premium_photo-1679870686635-14a739dbbb23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" %>
+            <div class="card-product-infos">
+              <h2><%=receiptor.choice.user.name%> sent you an invitation for a date!</h2>
+              <p><a href="/choices/<%= receiptor.choice.id %>/edit" class="btn btn-2">Choose your pick</a></p>
+            </div>
+          </div>
         <% end %>
       <% end %>
-
     </div>
-
-
-
 
     <div class="cards-index">
       <% if current_user.receiptors.empty? == false %>
         <% current_user.receiptors.each do |receiptor| %>
           <% result = receiptor.choice.options.ids %>
             <% if(result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
-
-                <% id = result.detect{ |e| result.count(e) > 1 } %>
-                <% option = Option.all.find(id) %>
-                <div class="card-product c1">
-                      <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
-                      <div class="card-product-infos">
-                        <h2>Date with: <strong><%=receiptor.choice.user.name %></strong></h2>
-                        <p>Tonight: <%= option.name %></p>
-                      </div>
+              <% id = result.detect{ |e| result.count(e) > 1 } %>
+              <% option = Option.all.find(id) %>
+              <div class="card-product c1">
+                <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                <div class="card-product-infos">
+                  <h2>Date with: <strong><%=receiptor.choice.user.name %></strong></h2>
+                  <p>Tonight: <%= option.name %></p>
                 </div>
-
+              </div>
             <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
-
-                <% option = Option.all.find(result.first) %>
-                  <div class="card-product c2">
-                        <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
-                        <div class="card-product-infos">
-                        <h2>Date with: <strong><%=receiptor.choice.user.name %></strong></h2>
-                        <p>Tonight: <%= option.name %></p>
-                      </div>
+              <% option = Option.all.find(result.first) %>
+                <div class="card-product c2">
+                  <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                  <div class="card-product-infos">
+                    <h2>Date with: <strong><%=receiptor.choice.user.name %></strong></h2>
+                    <p>Tonight: <%= option.name %></p>
                   </div>
+                </div>
             <% end %>
         <% end %>
       <% end %>
-
-
 
       <% if current_user.choices.empty? == false %>
         <% current_user.choices.each do |choice| %>
+          <% result = choice.options.ids %>
+          <% if result.size == 5%>
+            <div class="card-product c3">
+              <div class="card-product-infos">
+                <% if result.size == 5 && choice.receiptors.last.nil? == false %>
+                  <h2>Waiting for <%=choice.receiptors.last.name%>'s results...</h2>
+                  <p><a href="#" class="btn btn-secondary">Remind <%=choice.receiptors.last.name%> to choose a place for a date</a></p>
+                <% end %>
+              </div>
+            </div>
 
-            <% result = choice.options.ids %>
-            <% if result.size == 5%>
+          <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
+            <% id = result.detect{ |e| result.count(e) > 1 } %>
+            <% option = Option.all.find(id) %>
+              <div class="card-product c4">
+                <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+                <div class="card-product-infos">
+                  <h2>Date with: <strong><%=choice.receiptors.last.name%></strong></h2>
+                  <p>Tonight: <%= option.name %></p>
+                </div>
+              </div>
 
-                  <div class="card-product c3">
-
-                        <div class="card-product-infos">
-                        <h2>Waiting for <%=choice.receiptors.last.name%>'s results...</h2>
-                        <p><a href="#" class="btn btn-secondary">Remind <%=choice.receiptors.last.name%> to choose a place for a date</a></p>
-                      </div>
-                  </div>
-
-            <% elsif (result.size == 10) && (result.detect{ |e| result.count(e) > 1 }) %>
-
-                <% id = result.detect{ |e| result.count(e) > 1 } %>
-                <% option = Option.all.find(id) %>
-
-
-                    <div class="card-product c4">
-                            <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
-                            <div class="card-product-infos">
-                            <h2>Date with: <strong><%=choice.receiptors.last.name%></strong></h2>
-                           <p>Tonight: <%= option.name %></p>
-                          </div>
-                      </div>
-
-            <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
-
-                <% option = Option.all.find(result.first) %>
-
-
-                        <div class="card-product c5">
-                            <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
-                            <div class="card-product-infos">
-                            <h2>Date with: <strong><%=choice.receiptors.last.name%></strong></h2>
-                           <p>Tonight: <%= option.name %></p>
-                          </div>
-
-            <% end %>
-
+          <% elsif (result.size == 10) && ((result.detect{ |e| result.count(e) > 1 }).nil?)%>
+            <% option = Option.all.find(result.first) %>
+            <div class="card-product c5">
+              <%= cl_image_tag option.photo.key,  :crop=>"scale",  width: 100, height: 150 %>
+              <div class="card-product-infos">
+                <h2>Date with: <strong><%=choice.receiptors.last.name%></strong></h2>
+                <p>Tonight: <%= option.name %></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
+  </div>
 </div>
