@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+.newr {
+
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    background-image: linear-gradient(to right,#ed6d76, #ffb2bc);
+    // background-size: cover;
+    // background-position: center;
+    // background-attachment: fixed;
+    width: 100%;
+  }
+
+
+
+.card-newr {
+  width: 800px;
+  padding: 20px;
+  padding-bottom: 10px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-newr {
+  font-family: 'Changa One', cursive;
+  color: white;
+  font-size: 70px;
+}
