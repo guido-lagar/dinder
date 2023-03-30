@@ -5,20 +5,21 @@
   <meta name="keywords" content="Dinder, date night, couples, matchmaking, restaurants, bars">
 </head>
 
+<div class="login-page">
+  <div class="login-container">
 
-<div class="parent-container pt-5">
+    <div class="login-form row justify-content-center align-items-center">
+      <div class="col-6 col-sm-4">
+        <h2>Log in</h2>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }, data: { turbo: :false }) do |f| %>
 
-  <div class="row justify-content-center align-items-center vh-100">
-    <div class="col-12 col-sm-4">
-      <h2>Log in</h2>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }, data: { turbo: :false }) do |f| %>
+          <%= f.input :email, label: false, placeholder: "Email", required: false, autofocus: true, input_html: { autocomplete: "email", class: "form-control" } %>
+          <%= f.input :password, label: false, placeholder: "Password", required: false, input_html: { autocomplete: "current-password", class: "form-control" } %>
+          <%= f.input :remember_me, as: :boolean, label: "Remember me", required: false, input_html: { class: "form-check-input" } %>
+          <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
 
-        <%= f.input :email, label: false, placeholder: "Email", required: false, autofocus: true, input_html: { autocomplete: "email", class: "form-control" } %>
-        <%= f.input :password, label: false, placeholder: "Password", required: false, input_html: { autocomplete: "current-password", class: "form-control" } %>
-        <%= f.input :remember_me, as: :boolean, label: "Remember me", required: false, input_html: { class: "form-check-input" } %>
-        <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
-
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,33 @@
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: white;
+}
+
+.form-control {
+  background-color: white;
+}
+
+.form-control:focus {
+  background-color: white;
+}
+
+.signup-form {
+    overflow: hidden;
+    width: 50%;
+    background-image: linear-gradient(to right,#ff6472, #ffb2bc);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    height: 70vh;
+}
+
+.form-inputs-signup {
+  width: 80%;
+  align-items: center;
+}

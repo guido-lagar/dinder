@@ -3,9 +3,7 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dmn9i4cwm/image/upload/v1680111412/apple-icon-57x57_aqpov4.png"%>
     <% end %>
-    <div class="navbar-brand-name">
-    DINDER
-    </div>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-        <li class="nav-item">
+        <li class="nav-item dates">
              <%= link_to "My Dates", "/choices", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
@@ -29,6 +27,11 @@
           <li class="nav-item">
             <div class="btn">
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="btn btn-sign-up">
+              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
             </div>
           </li>
         <% end %>
