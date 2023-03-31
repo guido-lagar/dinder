@@ -3,6 +3,8 @@
 
 <div class=landing-page>
     <div class="news">
+
+     <h2 class="header-newr text-center">Select your options</h2>
       <div class="container container-show-white">
 
           <div class="container container-show">
@@ -21,6 +23,9 @@
                         <%= link_to choice_option_option_choices_path(@choice, @optioni), data: {turbo_method: :post } do%>
                           <div class = "cube left-cube">
 
+                            <%= cl_image_tag option2.photo.key %>
+                            <%= cl_image_tag option3.photo.key %>
+
                             <%= cl_image_tag @optioni.photo.key, data: {
                             add_in_choices_target: "event",
                             action: "click->add-in-choices#add",
@@ -28,8 +33,7 @@
                             }
                             %>
 
-                            <%= cl_image_tag option2.photo.key %>
-                            <%= cl_image_tag option3.photo.key %>
+
                             <%= cl_image_tag option1.photo.key %>
 
                           </div>
@@ -48,6 +52,8 @@
                         <%= link_to choice_option_option_choices_path(@choice, @optionk), data: {turbo_method: :post } do%>
 
                           <div class = "cube right-cube">
+                            <%= cl_image_tag option4.photo.key,  :crop=>"fill" %>
+                            <%= cl_image_tag option5.photo.key,  :crop=>"fill" %>
 
                             <%= cl_image_tag @optionk.photo.key,  :crop=>"fill", data: {
                             add_in_choices_target: "event",
@@ -56,13 +62,12 @@
 
                             }
                             %>
-                          <%= cl_image_tag option4.photo.key,  :crop=>"fill" %>
-                            <%= cl_image_tag option5.photo.key,  :crop=>"fill" %>
+
                             <%= cl_image_tag option6.photo.key,  :crop=>"fill" %>
                           </div>
                         <% end %>
                       </div>
-                          
+
                   </div>
 
               </div>
@@ -87,6 +92,93 @@
                       </div>
                     </div>
                 </div>
+        </div>
+
+        <div class="counter">
+            <% case @counter %>
+            <% when 0 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 1 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 2 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 3 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 4 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            </div>
+            <% when 5 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 6 %>
+            <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 7 %>
+             <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 8 %>
+             <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            </div>
+            <% when 9 %>
+             <div class="d-flex">
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle"></i>
+            </div>
+
+            <% end %>
+
         </div>
 </div>
 
@@ -125,6 +217,14 @@
     transform: translateX(0px);
   }
 }
+@keyframes counter-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 @keyframes grow-line {
   from {
@@ -136,6 +236,14 @@
     opacity: 1;
     height: 100%;
   }
+}
+.counter {
+  position: relative;
+  top: -290px;
+  color: #ed6d76;
+  opacity: 0;
+  animation: counter-reveal ease-out 1s forwards;
+  animation-delay: 2.5s;
 }
 
 .container-new {
@@ -203,13 +311,13 @@
 #img1 {
   transform: translateX(110%);
   animation: reveal-left-to-right ease-out 1s forwards;
-  animation-delay: 1.5s;
+  animation-delay: 2.5s;
 }
 
 #img2 {
   transform: translateX(-110%);
   animation: reveal-right-to-left ease-out 1s forwards;
-  animation-delay: 1.5s;
+  animation-delay: 2.5s;
 }
 
 
