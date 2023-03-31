@@ -11,5 +11,6 @@ class User < ApplicationRecord
 
   has_many :choices, dependent: :destroy
   has_many :receiptors
+  has_one_attached :photo
 
 end
