@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 .parent-container {
   display: flex;
   justify-content: center;
@@ -25,9 +28,14 @@ body {
     align-items: center;
     border-radius: 20px;
     height: 70vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 .form-inputs-signup {
   width: 80%;
   align-items: center;
+}
+
+h2 {
+  font-family: 'Changa One', cursive;
 }

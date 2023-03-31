@@ -14,8 +14,12 @@ User.destroy_all
 
 puts "creating user"
 user1 = User.new(name: "Olga", email: "olga@gmail.com", password: "123456qwerty")
+photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1678801134/cld-sample.jpg")
+user1.photo.attach(io: photo, filename: "lamar.png", content_type: "image/jpg")
 user1.save!
 user2 = User.new(name: "Guido", email: "guido@gmail.com", password: "123456")
+photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1680205545/CV_qsqnve.jpg")
+user2.photo.attach(io: photo, filename: "lamar.png", content_type: "image/jpg")
 user2.save!
 
 puts "user created"

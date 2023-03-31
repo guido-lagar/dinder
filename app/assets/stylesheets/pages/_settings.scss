@@ -1,81 +1,74 @@
-/* User Settings page styles */
+// // @import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+// // @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-.settings-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 160px;
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 5px;
-}
+// // .parent-container {
+// //   display: flex;
+// //   justify-content: center;
+// //   align-items: center;
+// // }
 
-.settings-header {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #000000;
-}
+// // body {
+// //   background-color: white;
+// // }
 
-.settings-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
+// // .form-control {
+// //   background-color: white;
+// // }
 
-.settings-form input[type="text"],
-.settings-form input[type="email"],
-.settings-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-}
+// // .form-control:focus {
+// //   background-color: white;
+// // }
 
-.settings-form input[type="file"] {
-  margin-top: 10px;
-}
+// // .settings-form {
+// //     overflow: hidden;
+// //     width: 100vh;
+// //     background-image: linear-gradient(to right,#ff6472, #ffb2bc);
+// //     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// //     display: flex;
+// //     align-items: center;
+// //     border-radius: 20px;
+// //     height: 100vh;
+// //     font-family: 'Poppins', sans-serif;
+// // }
 
-.settings-form input[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #337ab7;
-  color: #f2efef;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-}
+// // .settings-page {
+// //   // height: 1500px;
+// //   width: 100%;
+// //   display: flex;
+// //   justify-content: flex-start;
+// //   align-items: center;
+// //   flex-direction: column;
+// //   padding: 0;
+// //   margin: 0;
+// //   border: 0;
+// // }
 
-.settings-form input[type="submit"]:hover {
-  background-color: #2e6da4;
-}
+// // .settings-container {
+// //   height: 100vh;
+// //   text-align: center;
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: center;
+// //   justify-content: center;
+// //   opacity: 1;
+// //   margin: 0;
+// //   padding: 0;
+// //   top: 0;
+// //   background-color: white;
+// //   background-size: cover;
+// //   background-position: center;
+// //   background-attachment: fixed;
+// //   width: 100%;
+// // }
 
-/* Responsive styles */
-@media only screen and (max-width: 600px) {
-  .settings-container {
-    max-width: 100%;
-    padding: 10px;
-    border: none;
-  }
+// // h2 {
+// //   font-family: 'Changa One', cursive;
+// // }
 
-  .settings-header {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+// // .labels {
+// //   margin-top: 1rem;
+// // }
 
-  .settings-form input[type="text"],
-  .settings-form input[type="email"],
-  .settings-form input[type="password"],
-  .settings-form input[type="file"] {
-    margin-bottom: 10px;
-  }
-
-  .settings-form input[type="submit"] {
-    margin-top: 10px;
-  }
-}
+// // .button-settings {
+// //   margin-top: 2rem;
+// // }

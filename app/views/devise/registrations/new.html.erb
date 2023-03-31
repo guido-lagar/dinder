@@ -191,6 +191,8 @@ input {
 </footer>  %>
 <%= render "shared/navbarblack" %>
 
+<%= render "shared/navbarblack" %>
+
 <div class="login-page">
   <div class="login-container">
     <div class="signup-form row justify-content-center align-items-center">
@@ -201,7 +203,7 @@ input {
               <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }%>
               <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
               <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
-              <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
+              <%= f.button :submit, "Sign up", class: "btn btn-default btn-light" %>
         <% end %>
       </div>
     </div>
