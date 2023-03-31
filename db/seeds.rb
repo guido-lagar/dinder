@@ -54,7 +54,7 @@ option7 = Option.new(name: "Tequila Town", category: "Bar")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409727/Tequila_Bar2_jydgbd.jpg")
 option7.photo.attach(io: photo, filename: "tequilatown.png", content_type: "image/jpg")
 option7.save!
-option8 = Option.new(name:"Fabulous Fernet", category: "Bar")
+option8 = Option.new(name: "Fabulous Fernet", category: "Bar")
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679409727/Tequila_Bar2_jydgbd.jpg")
 option8.photo.attach(io: photo, filename: "fabulousfernet.png", content_type: "image/jpg")
 option8.save!
