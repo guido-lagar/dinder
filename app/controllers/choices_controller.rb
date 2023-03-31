@@ -3,11 +3,13 @@ class ChoicesController < ApplicationController
 
   def index
     @choices = Choice.all
+    @options = Option.all
   end
 
   def show
     @endgame = OptionChoice.where(choice_id: params[:id])
     @options = Option.all
+    @counter = @endgame.length
 
     loop do
       @i = @options.ids.sample
@@ -25,6 +27,7 @@ class ChoicesController < ApplicationController
     @choice = Choice.find(params[:id])
     @options_our = @choice.options.ids
     @options = Option.all
+    @counter = @endgame.length
 
     loop do
       @i = @options.ids.sample

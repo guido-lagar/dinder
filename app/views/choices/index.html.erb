@@ -6,6 +6,28 @@
 
 
       <div class="cards-index">
+        <% if current_user.name == "Guido" %>
+              <% option1 = @options[1]%>
+              <% option2 = @options[6]%>
+                        <div class="card-product g1">
+                              <%= cl_image_tag option1.photo.key %>
+                              <div class="card-product-infos">
+                              <h2><strong>Leila</strong></h2>
+                              <h3><%= option1.name %></h3>
+                              <p>March 27th</p>
+                            </div>
+                        </div>
+                         <div class="card-product g2">
+                              <%= cl_image_tag option2.photo.key %>
+                              <div class="card-product-infos">
+                              <h2><strong>Lili</strong></h2>
+                              <h3><%= option2.name %></h3>
+                              <p>March 29th</p>
+                            </div>
+                        </div>
+            <% end %>
+
+
         <% if current_user.receiptors.empty? == false %>
               <% current_user.receiptors.each do |receiptor| %>
                 <% if receiptor.choice.options.length == 5 %>
